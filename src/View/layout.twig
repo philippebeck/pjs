@@ -46,7 +46,90 @@
   <header>
 
     <!-- Main Navigation -->
-    {{ include('layout/navbar.twig') }}
+    <nav class="navbar fixed-top primary">
+
+      <!-- Home access -->
+      <ul class="brand-nav">
+        <li>
+          <a href="./" title="Accueil">
+            <img src="img/pjs.svg" alt="Pjs Logo" title="home">
+          </a>
+        </li>
+      </ul>
+
+      <!-- Main access -->
+      <ul class="main-nav">
+
+        <!-- Example access -->
+        <!-- <li>
+          <a href="{{ url('example') }}" title="Example">
+            <i class="fa fa-sitemap fa-fw" aria-hidden="true"></i>
+            <span>Example</span>
+          </a>
+        </li> -->
+
+      </ul>
+
+      <form role="search">
+        <input id="access" type="text" placeholder="Jim" title="Type 'J' to see the commands" autofocus>
+        <button id="help-btn" class="btn info-btn solid-round-sm help" type="button" title="See keyboard commands">
+          <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <!-- User access -->
+      <ul class="user-nav">
+
+        <!--  -->
+        {% if (isLogged()) %}
+
+        <li>
+          <p>Bonjour {{ userName() }} !</p>
+        </li>
+
+        <li>
+          <a href="{{ url('user!update', {'id': userId()}) }}" title="Edit my profile">
+            <img class="solid-round-sm" src="img/user/{{ userImage() }}" alt="User Picture">
+          </a>
+        </li>
+
+        <!-- Logout access -->
+        <li>
+          <a href="{{ url('user!logout') }}" title="Logout">
+            <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>
+          </a>
+        </li>
+
+        {% if (userEmail() == adminEmail()) %}
+
+        <!-- Admin access -->
+        <li>
+          <a href="{{ url('admin') }}" title="Administration">
+            <i class="fa fa-unlock-alt fa-fw" aria-hidden="true"></i>
+          </a>
+        </li>
+
+        {% endif %}
+
+        {% else %}
+
+        <!-- Login access -->
+        <li>
+          <a href="{{ url('user!login') }}" title="Login">
+            <i class="fa fa-sign-in fa-fw" aria-hidden="true"></i>
+          </a>
+        </li>
+
+        <!-- Create user access -->
+        <li>
+          <a href="{{ url('user!create') }}" title="New user">
+            <i class="fa fa-user-plus fa-fw" aria-hidden="true"></i>
+          </a>
+        </li>
+
+        {% endif %}
+      </ul>
+    </nav>
 
     <!-- Alert Message -->
     {% if (hasAlert()) %}
@@ -95,7 +178,58 @@
 
 
   <!-- ***** Footer ***** -->
-  {{ include('layout/footer.twig') }}
+
+  <footer class="info-glass center">
+
+    <nav class="row items-center content-center gm-sm crosshair">
+
+      <!-- Mailto link icon -->
+      <a class="btn solid-round info-outline inset-blur" href="mailto:contact@philippebeck.net" rel="noopener" rel="noreferrer" target="_blank" title="Contact">
+        <i class="fa fa-envelope fa-fw fa-lg" aria-hidden="true"></i>
+      </a>
+
+      <!-- GitHub link icon -->
+      <a class="btn solid-round github-outline inset-blur" href="https://github.com/philippebeck" rel="noopener" rel="noreferrer" target="_blank" title="GitHub">
+        <i class="fa fa-github fa-fw fa-lg" aria-hidden="true"></i>
+      </a>
+
+      <!-- Stack OverFlow link icon -->
+      <a class="btn solid-round stackoverflow-outline inset-blur" href="http://stackoverflow.com/story/philippebeck" rel="noopener" rel="noreferrer" target="_blank" title="Stack Overflow">
+        <i class="fa fa-stack-overflow fa-fw fa-lg" aria-hidden="true"></i>
+      </a>
+
+      <!-- LinkedIn link icon -->
+      <a class="btn solid-round linkedin-outline inset-blur" href="https://www.linkedin.com/in/philippebeck" rel="noopener" rel="noreferrer" target="_blank" title="LinkedIn">
+        <i class="fa fa-linkedin fa-fw fa-lg" aria-hidden="true"></i>
+      </a>
+
+      <!-- Twitter link icon -->
+      <a class="btn solid-round twitter-outline inset-blur" href="https://twitter.com/philippepjbeck" rel="noopener" rel="noreferrer" target="_blank" title="Twitter">
+        <i class="fa fa-twitter fa-fw fa-lg" aria-hidden="true"></i>
+      </a>
+
+      <!-- Free Code Camp link icon -->
+      <a class="btn solid-round freecodecamp-outline inset-blur" href="https://www.freecodecamp.com/philippebeck" rel="noopener" rel="noreferrer" target="_blank" title="Free Code Camp">
+        <i class="fa fa-free-code-camp fa-fw fa-lg" aria-hidden="true"></i>
+      </a>
+
+      <!-- CodePen link icon -->
+      <a class="btn solid-round default-outline inset-blur" href="https://codepen.io/philippebeck" rel="noopener" rel="noreferrer" target="_blank" title="CodePen">
+        <i class="fa fa-codepen fa-fw fa-lg" aria-hidden="true"></i>
+      </a>
+
+      <!-- PayPal link icon -->
+      <a class="btn solid-round info-outline inset-blur" href="https://www.paypal.me/philippepjbeck" rel="noopener" rel="noreferrer" target="_blank" title="Donation">
+        <i class="fa fa-paypal fa-fw fa-lg" aria-hidden="true"></i>
+      </a>
+    </nav>
+
+    <!-- License Link -->
+    <a class="license primary-btn" href="https://github.com/philippebeck/pjs/blob/master/LICENSE" rel="noopener" rel="noreferrer" target="_blank" title="License">MIT &copy; 2018 Philippe Beck</a>
+
+
+  </footer>
+
 
   <!-- Loads variables for Jim -->
   <script src="js/datas.js"></script>
