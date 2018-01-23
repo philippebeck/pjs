@@ -84,12 +84,12 @@
         {% if (isLogged()) %}
 
         <li>
-          <p>Bonjour {{ userName() }} !</p>
+          <p>Hello {{ userName() }} !</p>
         </li>
 
         <li>
           <a href="{{ url('user!update', {'id': userId()}) }}" title="Edit my profile">
-            <img class="solid-round-sm" src="img/user/{{ userImage() }}" alt="User Picture">
+            <img class="solid-round-sm" src="img/{{ userImage() }}" alt="User Picture">
           </a>
         </li>
 
@@ -139,7 +139,7 @@
     {% endif %}
 
     <!-- Main Title -->
-    <h1 class="main-title primary">{{ block('title') }}</h1>
+    <h1 class="main-title secondary center">{{ block('title') }}</h1>
 
     <ul id="jim-help" class="double blur-br-sm anime-grow-sm none">
       <li>A => ?</li>

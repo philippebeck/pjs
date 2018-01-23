@@ -24,28 +24,8 @@ class App_Twig_Extension extends \Twig_Extension
   {
     // Returns an array of Twig functions
     return array(
-      new \Twig_Function('ownerEmail',  array($this, 'ownerEmail')),
       new \Twig_Function('adminEmail',  array($this, 'adminEmail'))
     );
-  }
-
-
-  /** ************************************************\
-  * Checks the connection then returns the owner email
-  * @return string => the owner email
-  */
-  public function ownerEmail()
-  {
-    // Checks if a user is connected
-    if (Session::isLogged() == false)
-    {
-      return null;
-    }
-    // Reads the owner datas, then stores it
-    $owner = ModelFactory::get('User')->read(1);
-
-    // Returns the owner email
-    return $owner['email'];
   }
 
 
@@ -61,7 +41,7 @@ class App_Twig_Extension extends \Twig_Extension
       return null;
     }
     // Reads the admin datas, then stores it
-    $admin = ModelFactory::get('User')->read(2);
+    $admin = ModelFactory::get('User')->read(1);
 
     // Returns the admin email
     return $admin['email'];
