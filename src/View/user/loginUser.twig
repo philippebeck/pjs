@@ -1,0 +1,52 @@
+{# *************************** #}
+{# ***** LOGIN USER VIEW ***** #}
+{# *************************** #}
+
+
+{% extends 'layout/layout.twig' %}
+
+{% block title %}Authentication{% endblock %}
+
+{% block description %}{% endblock %}
+
+
+{% block main %}
+
+<main>
+
+  <!-- Login User Section -->
+  <section>
+
+    <form action="{{ url('user!login')}}" method="post">
+
+      <fieldset>
+        <legend><i class="fa fa-lock" aria-hidden="true"></i> Login to the user account</legend>
+        <ul>
+
+          <!-- User email field -->
+          <li>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="Insert your email" required>
+          </li>
+
+          <!-- User password field -->
+          <li>
+            <label for="pass">Password</label>
+            <input id="pass" name="pass" type="password" placeholder="Insert your password" autocomplete="off" required>
+          </li>
+
+          <!-- Control buttons -->
+          <li class="btn-group">
+            <a class="btn delete-btn outset-slight inset-blur" href="./">Cancellation</a>
+            <input class="btn cancel-btn outset-slight inset-blur" type="reset" value="Correction">
+            <input class="btn valid-btn outset-slight inset-blur" type="submit" value="Connection">
+          </li>
+        </ul>
+      </fieldset>
+
+    </form>
+
+  </section>
+</main>
+
+{% endblock %}

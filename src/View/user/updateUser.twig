@@ -1,0 +1,100 @@
+{# **************************** #}
+{# ***** UPDATE USER VIEW ***** #}
+{# **************************** #}
+
+
+{% extends 'layout/layout.twig' %}
+
+{% block title %}Editing the user account{% endblock %}
+
+{% block description %}{% endblock %}
+
+
+{% block main %}
+
+<main>
+
+  <form action={{ url('user!update', {'id': user.id}) }} method="post" enctype="multipart/form-data">
+
+    <!-- User avatar restriction -->
+    <input name="MAX_FILE_SIZE" type="hidden" value="10000000" />
+
+    <fieldset>
+      <legend><i class="fa fa-id-card" aria-hidden="true"></i> Identity</legend>
+      <ul>
+
+        <!-- First name field -->
+        <li>
+          <label for="first_name">First Name :</label>
+          <input id="first_name" name="first_name" type="text" maxlength="20" required value="{{ user.first_name }}">
+        </li>
+
+        <!-- Last name field -->
+        <li>
+          <label for="last_name">Last Name :</label>
+          <input id="last_name" name="last_name" type="text" maxlength="20" required value="{{ user.last_name }}">
+        </li>
+
+        <!-- Article avatar field -->
+        <li>
+          <label for="file">Photo :</label>
+          <input id="file" name="file" type="file" accept=".jpg, .jpeg, .png, .svg, .gif">
+        </li>
+
+      </ul>
+    </fieldset>
+
+    <fieldset>
+      <legend><i class="fa fa-compass" aria-hidden="true"></i> Location</legend>
+      <ul>
+
+        <!-- Zipcode field -->
+        <li>
+          <label for="zipcode">Zipcode :</label>
+          <input id="zipcode" name="zipcode" type="number" inputmode="numeric" required value="{{ user.zipcode }}">
+        </li>
+
+        <!-- Country field -->
+        <li>
+          <label for="country">Country :</label>
+          <input id="country" name="country" type="text" maxlength="20" required value="{{ user.country }}">
+        </li>
+
+      </ul>
+    </fieldset>
+
+    <fieldset>
+      <legend><i class="fa fa-lock" aria-hidden="true"></i> Authentication</legend>
+      <ul>
+
+        <!-- Champ Email -->
+        <li>
+          <label for="email">Email :</label>
+          <input id="email" name="email" type="email" maxlength="50" minlength="5" required  value="{{ user.email }}">
+        </li>
+
+        <li>
+          <!-- Champ Mot de Passe -->
+          <label for="pass">Mot de passe :</label>
+          <input id="pass" name="pass" type="password" placeholder="Enter or update your password" maxlength="50" minlength="8" required>
+        </li>
+
+      </ul>
+    </fieldset>
+
+    <!-- User date field -->
+    <input name="date" type="hidden" value="{{ date()|date('Y-m-d H:i:s') }}">
+
+    <!-- Boutons de contrôle -->
+    <div class="btn-group">
+      <a class="btn delete-btn outset-slight inset-blur" href="./">Annulation</a>
+      <input class="btn cancel-btn outset-slight inset-blur" type="reset" value="Correction">
+      <input class="btn valid-btn outset-slight inset-blur" type="submit" value="Modification">
+    </div>
+
+  </form>
+
+  <a class="btn default-btn solid-rounded spread" href="{{ url('user!delete', {'id': user.id}) }}">Supprimer mon compte</a>
+
+</main>
+{% endblock %}
