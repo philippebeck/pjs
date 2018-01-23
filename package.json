@@ -15,10 +15,7 @@
     "CMS"
   ],
   "author": "Philippe Beck <philippe@philippebeck.net>",
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/philippebeck/pjs/blob/master/LICENSE"
-  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/philippebeck/pjs/issues"
   },
