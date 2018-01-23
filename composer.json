@@ -1,0 +1,32 @@
+{
+  "name": "pjs",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philippebeck/pjs"
+  },
+  "type": "website",
+  "description": "Web Development - CMS - Open-source Technologies - HTML, CSS, JavaScript, PHP, SQL",
+  "author": "Philippe Beck <philippe@philippebeck.net>",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/philippebeck/pjs/blob/master/LICENSE"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/",
+      "Tests\\": "tests/",
+      "Pam\\": "vendor/pjs/pam/"
+    }
+  },
+  "require": {
+    "twig/twig": "^2.0",
+    "phpunit/phpunit": "^6.4",
+    "pjs/pam": "^0.1.2"
+  },
+  "config": {
+    "platform": {
+      "php": "7.0.22"
+    }
+  }
+}
