@@ -22,7 +22,7 @@
     <p>Posted the {{ date(article.created_date)|date('d M Y') }} at {{ date(article.created_date)|date('H:i') }}</p>
 
     <!-- Article Image -->
-    <a class="btn warning-light solid-rounded inset-blur" href="https://{{ article.link }}" rel="noopener" rel="noreferrer" target="_blank" title="See the origin">
+    <a class="btn warning-light solid-rounded inset-blur" href="{{ article.link }}" rel="noopener" rel="noreferrer" target="_blank" title="See the origin">
       <img src="img/blog/{{ article.image }}" alt="{{ article.image }}" width="300px">
     </a>
 
@@ -44,8 +44,7 @@
         <ul>
           <li>
             <!-- Comment Content Field -->
-            <label for="content">Comment</label>
-            <textarea id="content" name="content" rows="3" placeholder="Insert your comment here"></textarea>
+            <textarea class="mr-auto ml-auto" name="content" rows="3" placeholder="Insert your comment here"></textarea>
           </li>
 
           <li class="btn-group">
@@ -70,13 +69,13 @@
       <li>
 
         <!-- Comment Infos -->
-        <p class="text-warning">
-          Comment added the {{ date(comment.created_date)|date('d M Y') }} at {{ date(comment.created_date)|date('H:i') }} par {{ comment.user }}
+        <p class="cancel-text italic">
+          Comment added the {{ date(comment.created_date)|date('d M Y') }} at {{ date(comment.created_date)|date('H:i') }} by {{ comment.user }}
           <img class="solid-rounded-sm" src="img/user/{{ comment.image }}" alt="Profile picture" width="30px">
         </p>
 
         <!-- Comment Content -->
-        <p>{{ comment.content }}</p>
+        <p class="bold">{{ comment.content }}</p>
       </li>
       {% endfor %}
 
