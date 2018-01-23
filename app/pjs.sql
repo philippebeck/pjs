@@ -42,7 +42,7 @@ ENGINE=INNODB DEFAULT CHARSET=utf8;
 INSERT INTO Article
 (title,                 image,      created_date,           updated_date,           link,                                     content)
 VALUES
-('Article exemple !',   'pjs.svg',  '2018-01-23 15:30:00',  '2018-01-23 17:30:00',  'https://packagist.org/packages/pjs/pjs', 'This is an article example ! Pjs helps you to create articles very easily : go to the administration to clic on the "create a new article" green button, then complete the fields of the "create article" page & submit it !');
+('Article exemple !',   'pjs.png',  '2018-01-23 15:30:00',  '2018-01-23 17:30:00',  'https://packagist.org/packages/pjs/pjs', 'This is an article example ! Pjs helps you to create articles very easily : go to the administration to clic on the "create a new article" green button, then complete the fields of the "create article" page to submit it !');
 
 
 
@@ -66,9 +66,11 @@ ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 -- Inserts the User data
 INSERT INTO User
-(first_name,  last_name,  image,      zipcode,  country,    email,            pass,           created_date,           updated_date)
+(first_name,  last_name,  image,      zipcode,  country,    email,          pass,                                                               created_date,           updated_date)
 VALUES
-('Admin',     'Pjs',      'pjs.svg',  13660,    'France',   'admin@pjs.com',  '$2y$10$XZ.UnrqdCSkpxzyJUD8JXO3BL3X8vG2AlCXQjST0Prol.kropm1mO',     '2018-01-23 9:00:00',   '2018-01-23 10:00:00');
+('Pam',       'Pjs',      'pam.png',  13660,    'France',   'pam@pjs.com',  '$2y$10$XZ.UnrqdCSkpxzyJUD8JXO3BL3X8vG2AlCXQjST0Prol.kropm1mO',     '2018-01-23 9:00:00',   '2018-01-23 23:00:00'),
+('Jim',       'Pjs',      'jim.png',  13660,    'France',   'jim@pjs.com',  '$2y$10$XZ.UnrqdCSkpxzyJUD8JXO3BL3X8vG2AlCXQjST0Prol.kropm1mO',     '2018-01-23 9:00:00',   '2018-01-23 23:00:00'),
+('Sam',       'Pjs',      'sam.png',  13660,    'France',   'sam@pjs.com',  '$2y$10$XZ.UnrqdCSkpxzyJUD8JXO3BL3X8vG2AlCXQjST0Prol.kropm1mO',     '2018-01-23 9:00:00',   '2018-01-23 23:00:00');
 
 
 
@@ -85,3 +87,12 @@ CREATE TABLE IF NOT EXISTS Comment
   CONSTRAINT    fk_user_id      FOREIGN KEY   (user_id)     REFERENCES      User(id)
 )
 ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+
+-- Inserts the Comment data
+INSERT INTO Comment
+(content,                                             created_date,           article_id,  user_id)
+VALUES
+('Pjs knows where I hide the content !',              '2018-01-23 15:30:00',  '1',         '1'),
+('Pjs knows what are the letters to call with me !',  '2018-01-23 15:30:00',  '1',         '2'),
+('Pjs knows how to use my beautiful classes !',       '2018-01-23 15:30:00',  '1',         '3');
