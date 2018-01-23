@@ -1,5 +1,5 @@
 {
-  "name": "pjs",
+  "name": "pjs/pjs",
   "version": "0.1.0",
   "description": "PJS, a micro-CMS for coding in PyJamaS, with Pam, Jim & Sam",
   "main": "index.php",

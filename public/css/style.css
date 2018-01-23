@@ -31,6 +31,17 @@ h6 {
 }
 
 
+
+
+/* ***** Tables ***** */
+
+th, td {
+  border: thin solid;
+  padding: 1rem;
+}
+
+
+
 /* ***** Ids ***** */
 
 #alert {
