@@ -4,4 +4,71 @@
 
 
 
+/* ***** Titles ***** */
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  padding: .5rem 1rem;
+}
+
+h3 {
+  padding: .4rem .8rem;
+}
+
+h4 {
+  padding: .3rem .6rem;
+}
+
+h5 {
+  padding: .2rem .4rem;
+}
+
+h6 {
+  padding: .1rem .2rem;
+}
+
+
+/* ***** Ids ***** */
+
+#alert {
+  position: absolute;
+  top: -10rem;
+  right: 0;
+  left: 0;
+  z-index: 1002;
+  border-right: none;
+  border-left: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  animation: alert 10s;
+}
+
+
+#jim-help {
+  position: fixed;
+  top: 13rem;
+  left: 0;
+  z-index: 1001;
+  padding: 1rem;
+  background-color: PaleGreen;
+}
+
+#access,
+#help-btn {
+  width: 4rem;
+}
+
+
+
+/* ***** Footer ***** */
+
+.license {
+  display: block;
+  padding: .5rem 0;
+  cursor: help;
+}
+
 /* Put your project style here */
