@@ -1,0 +1,69 @@
+{# ******************************* #}
+{# ***** CREATE ARTICLE VIEW ***** #}
+{# ******************************* #}
+
+
+{% extends 'layout/layout.twig' %}
+
+{% block title %}Creation of new article{% endblock %}
+
+{% block description %}Administration : article creation{% endblock %}
+
+
+{% block main %}
+
+<main id="blog">
+
+  <!-- Create article form -->
+  <form action="{{ url('article!create') }}" method="post" enctype="multipart/form-data">
+
+    <!-- Article illustration restriction -->
+    <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+
+    <fieldset>
+      <legend>
+        <i class="fa fa-newspaper-o fa-fw fa-2x" aria-hidden="true"></i>
+      </legend>
+
+      <ul>
+        <li>
+          <!-- Article title field -->
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text" placeholder="Article title">
+        </li>
+
+        <li>
+          <!-- Article illustration field -->
+          <label for="file">Illustration</label>
+          <input id="file" name="file" type="file" accept=".jpg, .jpeg, .png, .svg, .gif, .pdf">
+        </li>
+
+        <li>
+          <!-- Article link field -->
+          <label for="link">Link</label>
+          <input id="link" name="link" type="text" placeholder="Article link">
+        </li>
+
+        <li>
+          <!-- Article content field -->
+          <label for="content">Content</label>
+          <textarea id="content" name="content" rows="5" placeholder="Article content"></textarea>
+        </li>
+
+        <!-- Controls buttons -->
+        <li class="btn-group">
+          <a class="btn delete-btn outset-slight inset-blur" href="{{ url('admin') }}">Quit</a>
+          <input class="btn cancel-btn outset-slight inset-blur" type="reset" value="Reset">
+          <input class="btn valid-btn outset-slight inset-blur" type="submit" value="Create">
+        </li>
+
+      </ul>
+    </fieldset>
+
+    <!-- Article date field -->
+    <input name="date" type="hidden" value="{{ date()|date('Y-m-d H:i:s') }}">
+
+  </form>
+</main>
+
+{% endblock %}

@@ -35,7 +35,7 @@ class AdminController extends Controller
         $allUsers = ModelFactory::get('User')->list();
 
         // Returns the rendering of the view admin with the user datas
-        return $this->render('admin.twig', ['allUsers' => $allUsers]);
+        return $this->render('admin/admin.twig', ['allUsers' => $allUsers]);
       }
       else {
         // Creates a warning message to inform that only the admin can access to this page

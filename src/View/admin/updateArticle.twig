@@ -1,0 +1,78 @@
+{# ******************************* #}
+{# ***** UPDATE ARTICLE VIEW ***** #}
+{# ******************************* #}
+
+
+{% extends 'layout/layout.twig' %}
+
+{% block title %}Editing the article : {{ article.title }}{% endblock %}
+
+{% block description %}Administration : articles edition{% endblock %}
+
+
+{% block main %}
+
+<main id="blog">
+
+    <ul>
+      <!-- Article Create Date -->
+      <li>Creation : the {{ date(article.created_date)|date('d M Y') }} at {{ date(article.created_date)|date('H:i:s') }}</li>
+
+      <!-- Article Last Update Date -->
+      <li>Last modification : the {{ date(article.updated_date)|date('d M Y') }} at {{ date(article.updated_date)|date('H:i:s') }}</li>
+
+    </ul>
+
+    <!-- Update article form -->
+    <form action={{ url('article!update', {'id': article.id}) }} method="post" enctype="multipart/form-data">
+
+      <!-- Article illustration restriction -->
+      <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+
+      <fieldset>
+        <legend>
+          <i class="fa fa-newspaper-o fa-fw fa-2x" aria-hidden="true"></i>
+        </legend>
+
+        <ul>
+          <li>
+            <!-- Article Title Field -->
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" value="{{ article.title }}">
+          </li>
+
+          <li>
+            <!-- Article illustration field -->
+            <label for="file">Illustration</label>
+            <input id="file" name="file" type="file" accept=".jpg, .jpeg, .png, .svg, .gif, .pdf">
+          </li>
+
+          <li>
+            <!-- Article link field -->
+            <label for="link">Link</label>
+            <input id="link" name="link" type="text" value="{{ article.link }}">
+          </li>
+
+          <li>
+            <!-- Article Content Field -->
+            <label for="content">Content</label>
+            <textarea id="content" name="content" rows="10">{{ article.content }}</textarea>
+          </li>
+
+          <!-- Controls buttons -->
+          <li class="btn-group">
+            <a class="btn delete-btn outset-slight inset-blur" href="{{ url('admin') }}">Quit</a>
+            <input class="btn cancel-btn outset-slight inset-blur" type="reset" value="Reset">
+            <input class="btn valid-btn outset-slight inset-blur" type="submit" value="Edit">
+          </li>
+
+        </ul>
+      </fieldset>
+
+      <!-- Article date field -->
+      <input name="date" type="hidden" value="{{ date()|date('Y-m-d H:i:s') }}">
+
+    </form>
+</main>
+
+{% endblock %}
