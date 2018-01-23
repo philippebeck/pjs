@@ -1,0 +1,113 @@
+{# ****************** #}
+{# ***** LAYOUT ***** #}
+{# ****************** #}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- ***** Head ***** -->
+<head>
+
+  <!-- Main Meta Data -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Main Title -->
+  <title>{% block title %}{% endblock %} - {% block author %}Philippe Beck{% endblock %}</title>
+
+  <!-- Favorite URL -->
+  <link rel="canonical" href="{% block canonical %}https://philippebeck.net{% endblock %}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Secondary Meta Data -->
+  <meta name="description" content="{{ block('description') }}">
+  <meta name="author" content="{{ block('author') }}">
+  <meta name="copyright" content="MIT">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+
+  <!-- Sam StyleSheet -->
+  <link rel="stylesheet" href="../node_modules/sam.scss/dist/sam.min.css">
+
+  <!-- Project StyleSheet -->
+  <link rel="stylesheet" href="../public/css/style.css">
+
+</head>
+<body>
+
+
+  <!-- ***** Header ***** -->
+  <header>
+
+    <!-- Main Navigation -->
+    {{ include('layout/navbar.twig') }}
+
+    <!-- Alert Message -->
+    {% if (hasAlert()) %}
+
+    <p id="alert" class="{{ readType() }} solid p-sm center">{{ readMessage() }}</p>
+
+    {% endif %}
+
+    <!-- Main Title -->
+    <h1 class="main-title primary">{{ block('title') }}</h1>
+
+    <ul id="jim-help" class="double blur-br-sm anime-grow-sm none">
+      <li>A => ?</li>
+      <li>B => ?</li>
+      <li>C => CodePen</li>
+      <li>D => ?</li>
+      <li>E => Enter Login</li>
+      <li>F => Free Code Camp</li>
+      <li>G => GitHub</li>
+      <li>H => Home</li>
+      <li>I => Instructions</li>
+      <li>J => Jim</li>
+      <li>K => Stack Overflow</li>
+      <li>L => LinkedIn</li>
+      <li>M => ?</li>
+      <li>N => Npm</li>
+      <li>O => OpenClassrooms</li>
+      <li>P => Pam</li>
+      <li>Q => Quit Logout</li>
+      <li>R => ?</li>
+      <li>S => Sam</li>
+      <li>T => Twitter</li>
+      <li>U => ?</li>
+      <li>V => Pjs</li>
+      <li>W => 3W Academy</li>
+      <li>X => License</li>
+      <li>Y => YouTube</li>
+      <li>Z => Message</li>
+    </ul>
+
+  </header>
+
+
+  <!-- ***** Main ***** -->
+  {% block main %}{% endblock %}
+
+
+  <!-- ***** Footer ***** -->
+  {{ include('layout/footer.twig') }}
+
+  <!-- Loads variables for Jim -->
+  <script src="js/datas.js"></script>
+
+  <!-- Loads Jim scripts -->
+  <script src="../node_modules/jim-js/jim.js"></script>
+
+  {# Adds specifics scripts to pages here #}
+  {% block script %}{% endblock %}
+
+  <!-- Loads Project Scripts -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
