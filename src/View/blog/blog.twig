@@ -1,0 +1,51 @@
+{# ********************* #}
+{# ***** BLOG VIEW ***** #}
+{# ********************* #}
+
+
+{% extends 'layout/layout.twig' %}
+
+{% block title %}My blog{% endblock %}
+
+{% block description %}Blog & News{% endblock %}
+
+
+{% block main %}
+
+<main>
+
+  <!-- Articles List -->
+  <ul class="grid-2md-3lg gap-lg content-evenly">
+
+    <!-- Articles Foreach -->
+    {% for article in allArticles %}
+    <li class="col items-center content-between">
+
+      <!-- Article Title with Link -->
+      <h2 class="dashed-underline  anime-twistL-sm">
+        <a href="{{ url('article!read', {'id': article.id}) }}" title="Read the article">{{ article.title }}</a>
+      </h2>
+
+      <!-- Article image -->
+      <a class="btn warning-light solid-rounded inset-blur anime-twistR-sm" href="{{ url('article!read', {'id': article.id}) }}" title="Read the article">
+        <img src="img/blog/{{ article.image }}" alt="{{ article.image }}">
+      </a>
+
+      <!-- Article Content -->
+      <p class="justify">{{ article.content | slice(0, 150) }}...</p>
+
+      <!-- Article Infos -->
+      <p>Posted the {{ date(article.created_date)|date('d M Y') }} at {{ date(article.created_date)|date('H:i') }}</p>
+
+      <!-- readArticle Link -->
+      <a class="btn info-outline solid-rounder inset-spread" href="{{ url('article!read', {'id': article.id}) }}" title="Read the article">
+        Lire la suite <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+      </a>
+
+    </li>
+    {% endfor %}
+
+  </ul>
+</main>
+
+{% endblock %}
