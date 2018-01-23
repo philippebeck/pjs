@@ -33,4 +33,6 @@ class User
     // Returns the admin email
     return $admin['email'];
   }
+
+  // !! You can add new user helper functions here !!
 }

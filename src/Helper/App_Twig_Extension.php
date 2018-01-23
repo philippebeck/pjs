@@ -25,6 +25,7 @@ class App_Twig_Extension extends \Twig_Extension
     // Returns an array of Twig functions
     return array(
       new \Twig_Function('adminEmail',  array($this, 'adminEmail'))
+      // !! You can add new function calls here to use with Twig !!
     );
   }
 
@@ -46,4 +47,6 @@ class App_Twig_Extension extends \Twig_Extension
     // Returns the admin email
     return $admin['email'];
   }
+
+  // !! Add the new php functions here !!
 }
