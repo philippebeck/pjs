@@ -14,73 +14,201 @@
 
 <main class="center">
 
-      <!-- ************ -->
-      <!-- User Section -->
-      <section>
-        <h3>
-          <i class="fa fa-users" aria-hidden="true"></i> Users
-        </h3>
+  <!-- *************** -->
+  <!-- Article Section -->
+  <section>
+    <h3>
+      <i class="fa fa-newspaper-o" aria-hidden="true"></i> Articles
+    </h3>
 
-        <!-- Create user button -->
-        <a class="btn valid-outline double-rounder spread" href="{{ url('user!create') }}">
-          Create a new user <i class="fa fa-user" aria-hidden="true"></i>
-        </a>
+    <!-- Create article button -->
+    <a class="btn valid-outline double-rounder spread" href="{{ url('article!create') }}">
+      Create a new article <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+    </a>
 
-        <!-- User table -->
-        <table class="cancel-glass ridge-lg inset-blur">
+    <!-- Article table -->
+    <table class="cancel-glass ridge-lg inset-blur">
 
-          <!-- Table header -->
-          <thead>
-            <tr>
-              <th>Id / Name</th>
-              <th>Photo</th>
-              <th>Email / Home</th>
-              <th>Creation / Edition</th>
-              <th>Update Delete</th>
-            </tr>
-          </thead>
+      <!-- Table header -->
+      <thead>
+        <tr>
+          <th>Id / Title</th>
+          <th>Picture</th>
+          <th>Content</th>
+          <th>Creation / Edition</th>
+          <th>Edit Delete</th>
+        </tr>
+      </thead>
 
-          <tbody>
+      <tbody>
 
-            <!-- Loop on all users -->
-            {% for user in allUsers %}
-            <tr>
+        <!-- Loop on all articles -->
+        {% for article in allArticles %}
+        <tr>
 
-              <!-- User name -->
-              <td>{{ user.id }} / {{ user.first_name }} {{ user.last_name }}</td>
+          <!-- Article title -->
+          <td>
+            <a class="btn special-outline solid-rounder inset-spread" href="{{ url('article!read', {'id': article.id}) }}" title="See the article">
+              {{ article.id }} / {{ article.title }}
+            </a>
+          </td>
 
-              <!-- User photo -->
-              <td>
-                <img class="solid-rounded-sm" src="img/{{ user.image }}" alt="Photo de profil" width="50px">
-              </td>
+          <!-- Article image -->
+          <td>
+            <a class="btn warning-light solid-rounded inset-blur" href="{{ article.link }}" rel="noopener" rel="noreferrer" target="_blank" title="See the origin">
+              <img src="img/blog/{{ article.image }}" alt="{{ article.image }}">
+            </a>
+          </td>
 
-              <!-- User email -->
-              <td>{{ user.email }} / {{ user.zipcode }} {{ user.country }}</td>
+          <!-- Article content -->u
+          <td>{{ article.content | slice(0, 70) }}...</td>
 
-              <!-- User created date -->
-              <td>{{ date(user.created_date)|date('d M Y') }} à {{ date(user.created_date)|date('H:i:s') }} /
+          <!-- Article create date -->
+          <td>{{ date(article.created_date)|date('d M Y') }} at {{ date(article.created_date)|date('H:i:s') }} / {{ date(article.updated_date)|date('d M Y') }} at {{ date(article.updated_date)|date('H:i:s') }}</td>
 
-                <!-- User update date -->
-                {{ date(user.updated_date)|date('d M Y') }} à {{ date(user.updated_date)|date('H:i:s') }}</td>
+          <!-- Update article button -->
+          <td>
+            <a class="btn info-btn solid-round-sm blur mb-sm" href="{{ url('article!update', {'id': article.id}) }}" title="Update the article">
+              <i class="fa fa-pencil-square-o fa-fw fa-lg" aria-hidden="true"></i>
+            </a>
 
-                <!-- Update user button -->
-                <td>
-                  <a class="btn info-btn solid-round-sm blur mb-sm" href="{{ url('user!update', {'id': user.id}) }}">
-                    <i class="fa fa-pencil-square-o fa-fw fa-lg" aria-hidden="true"></i>
-                  </a>
+            <!-- Delete Article Button -->
+            <a class="btn delete-btn solid-round-sm blur" href="{{ url('article!delete', {'id': article.id}) }}" title="Delete the article">
+              <i class="fa fa-times-circle-o fa-fw fa-lg" aria-hidden="true"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
 
-                  <!-- Delete user button -->
-                  <a class="btn delete-btn solid-round-sm blur" href="{{ url('user!delete', {'id': user.id}) }}">
-                    <i class="fa fa-times-circle-o fa-fw fa-lg" aria-hidden="true"></i>
-                  </a>
-                </td>
 
-              </tr>
-              {% endfor %}
+  <!-- *************** -->
+  <!-- Comment Section -->
+  <section>
+    <h3>
+      <i class="fa fa-comments-o" aria-hidden="true"></i> Comments
+    </h3>
 
-            </tbody>
-          </table>
-        </section>
-    </main>
+    <!-- Comment table -->
+    <table class="cancel-glass ridge-lg inset-blur">
 
-    {% endblock %}
+      <!-- Table header -->
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Article</th>
+          <th>Content</th>
+          <th>Creation</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <!-- Comment foreach  -->
+        {% for comment in allComments %}
+        <tr>
+
+          <!-- Comment id -->
+          <td>{{ comment.id }}</td>
+
+          <!-- Article link button -->
+          <td>
+            <a class="btn special-btn solid-round-sm blur" href="{{ url('article!read', {'id': comment.article_id}) }}">
+              <i class="fa fa-newspaper-o fa-lg" aria-hidden="true"></i>
+            </a>
+          </td>
+
+          <!-- Comment content -->
+          <td>{{ comment.content }}</td>
+
+          <!-- Comment create date -->
+          <td>{{ date(comment.created_date)|date('d M Y') }} à {{ date(comment.created_date)|date('H:i:s') }}</td>
+
+          <!-- Delete comment button -->
+          <td>
+            <a class="btn delete-btn solid-round-sm blur" href={{ url('comment!delete', {'id': comment.id}) }}>
+              <i class="fa fa-times-circle-o fa-fw fa-lg" aria-hidden="true"></i>
+            </a>
+          </td>
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ************ -->
+  <!-- User Section -->
+  <section>
+    <h3>
+      <i class="fa fa-users" aria-hidden="true"></i> Users
+    </h3>
+
+    <!-- Create user button -->
+    <a class="btn valid-outline double-rounder spread" href="{{ url('user!create') }}">
+      Create a new user <i class="fa fa-user" aria-hidden="true"></i>
+    </a>
+
+    <!-- User table -->
+    <table class="cancel-glass ridge-lg inset-blur">
+
+      <!-- Table header -->
+      <thead>
+        <tr>
+          <th>Id / Name</th>
+          <th>Photo</th>
+          <th>Email / Home</th>
+          <th>Creation / Edition</th>
+          <th>Update Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <!-- Loop on all users -->
+        {% for user in allUsers %}
+        <tr>
+
+          <!-- User name -->
+          <td>{{ user.id }} / {{ user.first_name }} {{ user.last_name }}</td>
+
+          <!-- User photo -->
+          <td>
+            <img class="solid-rounded-sm" src="img/{{ user.image }}" alt="Photo de profil" width="50px">
+          </td>
+
+          <!-- User email -->
+          <td>{{ user.email }} / {{ user.zipcode }} {{ user.country }}</td>
+
+          <!-- User created date -->
+          <td>{{ date(user.created_date)|date('d M Y') }} à {{ date(user.created_date)|date('H:i:s') }} /
+
+            <!-- User update date -->
+            {{ date(user.updated_date)|date('d M Y') }} à {{ date(user.updated_date)|date('H:i:s') }}</td>
+
+            <!-- Update user button -->
+            <td>
+              <a class="btn info-btn solid-round-sm blur mb-sm" href="{{ url('user!update', {'id': user.id}) }}">
+                <i class="fa fa-pencil-square-o fa-fw fa-lg" aria-hidden="true"></i>
+              </a>
+
+              <!-- Delete user button -->
+              <a class="btn delete-btn solid-round-sm blur" href="{{ url('user!delete', {'id': user.id}) }}">
+                <i class="fa fa-times-circle-o fa-fw fa-lg" aria-hidden="true"></i>
+              </a>
+            </td>
+
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  {% endblock %}

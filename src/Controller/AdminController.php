@@ -31,11 +31,17 @@ class AdminController extends Controller
       // Checks if the user is the administrator
       if (Session::userEmail() == User::adminEmail())
       {
-        // Reads all users, then stores them
-        $allUsers = ModelFactory::get('User')->list();
+        // Reads all articles, users & comments, then stores them
+        $allArticles  = ModelFactory::get('Article')->list();
+        $allComments  = ModelFactory::get('Comment')->list();
+        $allUsers     = ModelFactory::get('User')   ->list();
 
         // Returns the rendering of the view admin with the user datas
-        return $this->render('admin/admin.twig', ['allUsers' => $allUsers]);
+        return $this->render('admin/admin.twig', [
+          'allArticles'       => $allArticles,
+          'allComments'       => $allComments,
+          'allUsers'          => $allUsers
+        ]);
       }
       else {
         // Creates a warning message to inform that only the admin can access to this page
