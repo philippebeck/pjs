@@ -5,7 +5,7 @@
 
 
 // You need to put this file in your js public folder, then call it from your layout before jim.js
-// And you need to put actions for your project in each function
+// And, obviously, you need to put actions for your project in each function
 // For example, I put some links in some of them
 
 
@@ -16,12 +16,12 @@
 
 // Function for A action
 function keyA() {
-  // You can put an action here !
+  document.getElementById('logo').classList.toggle('anime-slideL-sm-double-inv');
 }
 
 // Function for B action
 function keyB() {
-  // You can put an action here !
+  location.search = '?access=article';
 }
 
 // Function for C action
@@ -31,12 +31,12 @@ function keyC() {
 
 // Function for D action
 function keyD() {
-  // You can put an action here !
+  document.getElementById('logo').classList.toggle('anime-twisterT-tn-double-inv');
 }
 
 // Function for E action
 function keyE() {
-  // You can put an action here !
+  location.search = '?access=user!login';
 }
 
 // Function for F action
@@ -56,17 +56,17 @@ function keyH() {
 
 // Function for I action
 function keyI() {
-  location = 'https://www.instagram.com/?hl=fr';
+  document.getElementById('jim-help').classList.toggle('none');
 }
 
 // Function for J action
 function keyJ() {
-  document.getElementById('jim-help').classList.toggle('none');
+  location = 'https://philippebeck.net/public/index.php?access=pjs!jim';
 }
 
 // Function for K action
 function keyK() {
-  // You can put an action here !
+  location = 'https://stackoverflow.com';
 }
 
 // Function for L action
@@ -91,22 +91,22 @@ function keyO() {
 
 // Function for P action
 function keyP() {
-  location = 'https://packagist.org';
+  location = 'https://philippebeck.net/public/index.php?access=pjs!pam';
 }
 
 // Function for Q action
 function keyQ() {
-  // You can put an action here !
+  location.search = '?access=user!logout';
 }
 
 // Function for R action
 function keyR() {
-  // You can put an action here !
+  document.getElementById('logo').classList.toggle('anime-full-tn-double-inv');
 }
 
 // Function for S action
 function keyS() {
-  location = 'https://stackoverflow.com';
+  location = 'https://philippebeck.net/public/index.php?access=pjs!sam';
 }
 
 // Function for T action
@@ -116,12 +116,12 @@ function keyT() {
 
 // Function for U action
 function keyU() {
-  // You can put an action here !
+  document.getElementById('logo').classList.toggle('anime-bounceL-tn-double-inv');
 }
 
 // Function for V action
 function keyV() {
-  // You can put an action here !
+  document.getElementById('logo').classList.toggle('anime-fullZ3d-tn');
 }
 
 // Function for W action
@@ -131,7 +131,7 @@ function keyW() {
 
 // Function for X action
 function keyX() {
-  // You can put an action here !
+  location = 'https://github.com/philippebeck/pjs/blob/master/LICENSE';
 }
 
 // Function for Y action
@@ -141,5 +141,5 @@ function keyY() {
 
 // Function for Z action
 function keyZ() {
-  // You can put an action here !
+  alert('Thanks for using Pjs !');
 }
