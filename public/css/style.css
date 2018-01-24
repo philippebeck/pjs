@@ -3,8 +3,23 @@
 /* ***************** */
 
 
+
+/* ******************* */
+/* ***** Summary ***** */
+
+
+/* 1 => Fonts */
+/* 2 => Keyframes */
+/* 3 => Layout */
+/* 4 => Classes */
+/* 5 => Main */
+/* 6 => Ids */
+
+
+
 /* ***************** */
 /* ***** Fonts ***** */
+
 
 /* Font for all btn classes except in tables */
 @font-face {
@@ -112,12 +127,12 @@
 }
 
 
+
 /* ****************** */
 /* ***** Layout ***** */
 
 
 /* ***** Global ***** */
-
 
 body {
   font-family: 'neris', sans-serif;
@@ -144,6 +159,10 @@ table .btn {
   font-family: 'fantasque', sans-serif;
 }
 
+table {
+  margin-bottom: 5rem;
+}
+
 th, td {
   border: thin solid;
   padding: 1rem;
@@ -156,6 +175,11 @@ form {
   font-family: 'quantico', sans-serif;
 }
 
+fieldset {
+  margin-bottom: 1rem;
+}
+
+
 /* ***** Medias ***** */
 
 figure {
@@ -167,6 +191,7 @@ figcaption {
   padding: 1rem;
 }
 
+
 /* ***** Footer ***** */
 
 .license {
@@ -176,7 +201,70 @@ figcaption {
 }
 
 
+
+/* ******************* */
+/* ***** Classes ***** */
+
+
+.btn {
+  font-family: 'eczar', serif;
+}
+
+
+
+/* **************** */
+/* ***** Main ***** */
+
+
+/* ***** Home ***** */
+
+#home img {
+  max-width: 30rem;
+}
+
+
+/* ***** Blog ***** */
+
+#blog img {
+  max-height: 15rem;
+  max-width: 15rem;
+}
+
+#blog p,
+#article p {
+  font-family: 'elite', serif;
+}
+
+
+/* ***** Admin ***** */
+
+#admin h2 {
+  text-decoration: underline wavy;
+}
+
+#admin h2 + a {
+  margin-bottom: 3rem;
+}
+
+#admin td {
+  hyphens: auto;
+  word-wrap: break-word;
+}
+
+#admin img {
+  max-height: 10rem;
+  max-width: 10rem;
+}
+
+#admin td:last-of-type {
+  width: 7rem;
+}
+
+
+
+/* *************** */
 /* ***** Ids ***** */
+
 
 #alert {
   position: absolute;
@@ -203,61 +291,4 @@ figcaption {
 #access,
 #help-btn {
   width: 4rem;
-}
-
-
-
-/* **************** */
-/* ***** Main ***** */
-
-main {
-  padding: 5rem 0;
-}
-
-/* ***** Home ***** */
-
-#home img,
-#home svg {
-  max-height: 15rem;
-  max-width: 15rem;
-}
-
-
-/* ***** Blog ***** */
-
-#blog img {
-  max-height: 15rem;
-  max-width: 15rem;
-}
-
-#blog p,
-#article p {
-  font-family: 'elite', serif;
-}
-
-
-
-/* ***** Admin ***** */
-
-
-#admin h2 {
-  text-decoration: underline wavy;
-}
-
-#admin h2 + a {
-  margin-bottom: 3rem;
-}
-
-#admin td {
-  hyphens: auto;
-  word-wrap: break-word;
-}
-
-#admin img {
-  max-height: 10rem;
-  max-width: 10rem;
-}
-
-#admin td:last-of-type {
-  width: 7rem;
 }

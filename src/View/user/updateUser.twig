@@ -12,7 +12,7 @@
 
 {% block main %}
 
-<main>
+<main class="center">
 
   <form action={{ url('user!update', {'id': user.id}) }} method="post" enctype="multipart/form-data">
 
@@ -87,14 +87,14 @@
 
     <!-- Boutons de contrôle -->
     <div class="btn-group">
-      <a class="btn delete-btn outset-slight inset-blur" href="./">Annulation</a>
+      <a class="btn delete-btn outset-slight inset-blur" href="./">Cancellation</a>
       <input class="btn cancel-btn outset-slight inset-blur" type="reset" value="Correction">
       <input class="btn valid-btn outset-slight inset-blur" type="submit" value="Modification">
     </div>
 
   </form>
 
-  <a class="btn default-btn solid-rounded spread" href="{{ url('user!delete', {'id': user.id}) }}">Supprimer mon compte</a>
+  <a class="btn default-btn solid-rounded spread mb-lg" href="{{ url('user!delete', {'id': user.id}) }}">Delete my Account</a>
 
 </main>
 {% endblock %}

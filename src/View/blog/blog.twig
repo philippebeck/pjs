@@ -15,7 +15,7 @@
 <main id="blog">
 
   <!-- Articles List -->
-  <ul class="grid-2md-3lg gap-lg content-evenly">
+  <ul class="row content-evenly">
 
     <!-- Articles Foreach -->
     {% for article in allArticles %}
@@ -36,7 +36,7 @@
       <p>Posted the {{ date(article.created_date)|date('d M Y') }} at {{ date(article.created_date)|date('H:i') }}</p>
 
       <!-- readArticle Link -->
-      <a class="btn info-outline solid-rounder inset-spread" href="{{ url('article!read', {'id': article.id}) }}" title="Read the article">
+      <a class="btn info-outline solid-rounder inset-spread mb-lg" href="{{ url('article!read', {'id': article.id}) }}" title="Read the article">
         Read more... <i class="fa fa-hand-o-right" aria-hidden="true"></i>
       </a>
 

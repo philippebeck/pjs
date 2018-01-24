@@ -1,11 +1,11 @@
 <?php
 
 // ===================================================== \\
-// ======================= P A M ======================= \\
-// ========== Php Approachable Microframework ========== \\
+// ======================= P J S ======================= \\
+// ==================== Pam Jim Sam ==================== \\
 // ===================================================== \\
-// ========== https://github/philippebeck/pam ========== \\
-// ====== https://packagist.org/packages/pjs/pam ======= \\
+// ========== https://github/philippebeck/pjs ========== \\
+// ====== https://packagist.org/packages/pjs/pjs ======= \\
 // ===================================================== \\
 
 
@@ -14,46 +14,39 @@
 // ***** Installation ***** \\
 
 // To install via Composer :
-//$ composer require pjs/pam
-
-
-// After that you need to do 3 things (for the moment, I will change this in a near future) :
-// !! => First, you need to move this file in your public folder, or the content of this file in your index.php (see here line 67)
-// !! => Then, you need to move App_Twig_Extension in your src/Helper, or create one Twig Extension with the same name & location (see FrontController.php line 72)
-// !! => And, you need to put this folder (app) with the config.php inside, in your project root folder (see PDOFactory.php line 29)
+//$ composer require pjs/pjs
 
 
 
 // ******************** \\
 // ***** Overview ***** \\
 
-// Pam is a microframework PHP based on MVC architecture.
+// Pjs, a microCMS for coding in pyjamas !
 
-// Pam is very easy to use & very light to implement.
+// You will find a lot of features to construct a website :
+//    Php classes provided by Pam, the Php Appoachable Microframework
+//    JavaScript functions provided by Jim, the Javascript Interactive Microlibrary
+//    Css classes provided by Sam, the Scss Animated Microframework
+//    Filters & classes in the views by Twig, the Symfony Template Engine
+//    And others tools provided by Pjs, the microCMS
 
-// The Model part can be used for all CRUD actions and doesn't need to be overloaded for basic actions.
+// Pjs is a study project, but don't hesitate to send issues or pull requests, I will watch them with interest...
 
-// The View part uses the template engine Twig, so it's possible to use variables, fonctions, filters, etc...
-
-// The Controller part inherit from the main controller some very useful fonctions & the FrontController structure the application with action methods.
-
-// Sessions are managed by Pam for log, user & message actions.
-
-// DataBase access is managed too obviously, through the PDO class.
+// Enjoy !!
 
 
 
 // ************************* \\
 // ***** Documentation ***** \\
 
-// The documentation will be added as soon as possible... please apologize for the inconvenience...
+// The documentation will be available the next week...
 
 
 
 // ************************ \\
 // ***** Contribution ***** \\
 
-// Pam needs you if you like it : sends pull requests on GitHub to improve it !!
+// Pjs needs you if you like it : sends pull requests on GitHub to improve it !!
 
 
 
