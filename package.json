@@ -1,7 +1,7 @@
 {
   "name": "pjs/pjs",
-  "version": "0.1.0",
-  "description": "PJS, a micro-CMS for coding in PyJamaS, with Pam, Jim & Sam",
+  "version": "0.1.1",
+  "description": "PJS, a micro-CMS for coding in pyjamas, with Pam, Jim & Sam",
   "main": "index.php",
   "repository": {
     "type": "git",

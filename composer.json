@@ -1,12 +1,12 @@
 {
-  "name": "pjs",
-  "version": "0.1.0",
+  "name": "pjs/pjs",
+  "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/philippebeck/pjs"
   },
   "type": "CMS",
-  "description": "PJS, a micro-CMS for coding in PyJamaS, with Pam, Jim & Sam",
+  "description": "PJS, a micro-CMS for coding in pyjamas, with Pam, Jim & Sam",
   "keywords": ["cms","php","mvc","js","event","css","scss"],
   "license": "MIT",
   "authors": [
