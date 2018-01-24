@@ -5,8 +5,18 @@ A microCMS for coding in Pyjamas
 # Installation
 
 To install via Composer :
-
 $ composer require pjs/pjs
+
+After that, you need to copy the content of the folder "vendor/pjs/pjs" to your project folder
+
+Then type in your terminal :
+  $ npm install
+For Front-end dependencies
+
+If something wrong :
+- Check your config file & your PhpMyAdmin to verify if passwords match
+- Type in your terminal => $ composer dump-autoload
+- Send an Issue => https://github.com/philippebeck/pjs/issues
 
 
 # Overview
