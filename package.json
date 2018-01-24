@@ -1,6 +1,6 @@
 {
   "name": "pjs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "PJS, a micro-CMS for coding in pyjamas, with Pam, Jim & Sam",
   "main": "index.php",
   "repository": {
