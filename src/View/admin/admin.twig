@@ -12,14 +12,14 @@
 
 {% block main %}
 
-<main class="center">
+<main id="admin" class="center">
 
   <!-- *************** -->
   <!-- Article Section -->
   <section>
-    <h3>
+    <h2>
       <i class="fa fa-newspaper-o" aria-hidden="true"></i> Articles
-    </h3>
+    </h2>
 
     <!-- Create article button -->
     <a class="btn valid-outline double-rounder spread" href="{{ url('article!create') }}">
@@ -32,11 +32,11 @@
       <!-- Table header -->
       <thead>
         <tr>
-          <th>Id / Title</th>
+          <th>Id<br>Title</th>
           <th>Picture</th>
           <th>Content</th>
-          <th>Creation / Edition</th>
-          <th>Edit Delete</th>
+          <th>Creation<br>Edition</th>
+          <th>Update Delete</th>
         </tr>
       </thead>
 
@@ -49,7 +49,7 @@
           <!-- Article title -->
           <td>
             <a class="btn special-outline solid-rounder inset-spread" href="{{ url('article!read', {'id': article.id}) }}" title="See the article">
-              {{ article.id }} / {{ article.title }}
+              {{ article.id }}<br>{{ article.title }}
             </a>
           </td>
 
@@ -60,11 +60,11 @@
             </a>
           </td>
 
-          <!-- Article content -->u
+          <!-- Article content -->
           <td>{{ article.content | slice(0, 70) }}...</td>
 
           <!-- Article create date -->
-          <td>{{ date(article.created_date)|date('d M Y') }} at {{ date(article.created_date)|date('H:i:s') }} / {{ date(article.updated_date)|date('d M Y') }} at {{ date(article.updated_date)|date('H:i:s') }}</td>
+          <td>{{ date(article.created_date)|date('d M Y') }} at {{ date(article.created_date)|date('H:i:s') }}<hr>{{ date(article.updated_date)|date('d M Y') }} at {{ date(article.updated_date)|date('H:i:s') }}</td>
 
           <!-- Update article button -->
           <td>
@@ -87,9 +87,9 @@
   <!-- *************** -->
   <!-- Comment Section -->
   <section>
-    <h3>
+    <h2>
       <i class="fa fa-comments-o" aria-hidden="true"></i> Comments
-    </h3>
+    </h2>
 
     <!-- Comment table -->
     <table class="cancel-glass ridge-lg inset-blur">
@@ -116,7 +116,7 @@
 
           <!-- Article link button -->
           <td>
-            <a class="btn special-btn solid-round-sm blur" href="{{ url('article!read', {'id': comment.article_id}) }}">
+            <a class="btn special-btn solid-rounded-sm blur" href="{{ url('article!read', {'id': comment.article_id}) }}">
               <i class="fa fa-newspaper-o fa-lg" aria-hidden="true"></i>
             </a>
           </td>
@@ -125,7 +125,7 @@
           <td>{{ comment.content }}</td>
 
           <!-- Comment create date -->
-          <td>{{ date(comment.created_date)|date('d M Y') }} à {{ date(comment.created_date)|date('H:i:s') }}</td>
+          <td>{{ date(comment.created_date)|date('d M Y') }} at {{ date(comment.created_date)|date('H:i:s') }}</td>
 
           <!-- Delete comment button -->
           <td>
@@ -145,9 +145,9 @@
   <!-- ************ -->
   <!-- User Section -->
   <section>
-    <h3>
+    <h2>
       <i class="fa fa-users" aria-hidden="true"></i> Users
-    </h3>
+    </h2>
 
     <!-- Create user button -->
     <a class="btn valid-outline double-rounder spread" href="{{ url('user!create') }}">
@@ -160,10 +160,10 @@
       <!-- Table header -->
       <thead>
         <tr>
-          <th>Id / Name</th>
-          <th>Photo</th>
-          <th>Email / Home</th>
-          <th>Creation / Edition</th>
+          <th>Id<br>Name</th>
+          <th>Picture</th>
+          <th>Email<br>Location</th>
+          <th>Creation<br>Edition</th>
           <th>Update Delete</th>
         </tr>
       </thead>
@@ -175,21 +175,18 @@
         <tr>
 
           <!-- User name -->
-          <td>{{ user.id }} / {{ user.first_name }} {{ user.last_name }}</td>
+          <td>{{ user.id }}<br>{{ user.first_name }} {{ user.last_name }}</td>
 
           <!-- User photo -->
           <td>
-            <img class="solid-rounded-sm" src="img/user/{{ user.image }}" alt="Photo de profil" width="50px">
+            <img class="solid-rounded-sm" src="img/user/{{ user.image }}" alt="Profile Picture" width="50px">
           </td>
 
           <!-- User email -->
-          <td>{{ user.email }} / {{ user.zipcode }} {{ user.country }}</td>
+          <td>{{ user.email }}<hr>{{ user.zipcode }} {{ user.country }}</td>
 
-          <!-- User created date -->
-          <td>{{ date(user.created_date)|date('d M Y') }} à {{ date(user.created_date)|date('H:i:s') }} /
-
-            <!-- User update date -->
-            {{ date(user.updated_date)|date('d M Y') }} à {{ date(user.updated_date)|date('H:i:s') }}</td>
+          <!-- User created date & updated date -->
+          <td>{{ date(user.created_date)|date('d M Y') }} at {{ date(user.created_date)|date('H:i:s') }}<hr>{{ date(user.updated_date)|date('d M Y') }} at {{ date(user.updated_date)|date('H:i:s') }}</td>
 
             <!-- Update user button -->
             <td>

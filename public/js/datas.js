@@ -121,7 +121,7 @@ function keyU() {
 
 // Function for V action
 function keyV() {
-  document.getElementById('logo').classList.toggle('anime-fullZ3d-tn');
+  location = 'https://philippebeck.net/public/index.php?access=pjs';
 }
 
 // Function for W action

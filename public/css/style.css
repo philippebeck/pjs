@@ -3,43 +3,177 @@
 /* ***************** */
 
 
+/* ***************** */
+/* ***** Fonts ***** */
+
+/* Font for all btn classes except in tables */
+@font-face {
+  font-family: 'eczar';
+  src: url('../fonts/eczar/Eczar.eot');
+  src: url('../fonts/eczar/Eczar.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/eczar/Eczar.woff') format('woff'),
+  url('../fonts/eczar/Eczar.ttf') format('truetype'),
+  url('../fonts/eczar/Eczar.svg#eczarregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Font for all p tags in the blog & in the article */
+@font-face {
+  font-family: 'elite';
+  src: url('../fonts/elite/SpecialElite.eot');
+  src: url('../fonts/elite/SpecialElite.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/elite/SpecialElite.woff') format('woff'),
+  url('../fonts/elite/SpecialElite.ttf') format('truetype'),
+  url('../fonts/elite/SpecialElite.svg#special_eliteregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Font for all tables & all classes btn in tables */
+@font-face {
+  font-family: 'fantasque';
+  src: url('../fonts/fantasque/fantasquesansmono.eot');
+  src: url('../fonts/fantasque/fantasquesansmono.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/fantasque/fantasquesansmono.otf') format('otf'),
+  url('../fonts/fantasque/fantasquesansmono.woff') format('woff'),
+  url('../fonts/fantasque/fantasquesansmono.ttf') format('truetype'),
+  url('../fonts/fantasque/fantasquesansmono.svg#fantasque_sans_monoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Font for all h1 */
+@font-face {
+  font-family: 'luxi';
+  src: url('../fonts/luxi/luximr.eot');
+  src: url('../fonts/luxi/luximr.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/luxi/luximr.woff') format('woff'),
+  url('../fonts/luxi/luximr.ttf') format('truetype'),
+  url('../fonts/luxi/luximr.svg#luxi_monoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Global font */
+@font-face {
+  font-family: 'neris';
+  src: url('../fonts/neris/Neris.eot');
+  src: url('../fonts/neris/Neris.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/neris/Neris.otf') format('otf'),
+  url('../fonts/neris/Neris.woff') format('woff'),
+  url('../fonts/neris/Neris.ttf') format('truetype'),
+  url('../fonts/neris/Neris.svg#nerislight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Font for all forms */
+@font-face {
+  font-family: 'quantico';
+  src: url('../fonts/quantico/Quantico.eot');
+  src: url('../fonts/quantico/Quantico.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/quantico/Quantico.otf') format('otf'),
+  url('../fonts/quantico/Quantico.woff') format('woff'),
+  url('../fonts/quantico/Quantico.ttf') format('truetype'),
+  url('../fonts/quantico/Quantico.svg#quanticoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Font for all h2 */
+@font-face {
+  font-family: 'sansation';
+  src: url('../fonts/sansation/Sansation.eot');
+  src: url('../fonts/sansation/Sansation.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/sansation/Sansation.woff') format('woff'),
+  url('../fonts/sansation/Sansation.ttf') format('truetype'),
+  url('../fonts/sansation/Sansation.svg#sansationregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+/* ********************* */
+/* ***** Keyframes ***** */
+
+
+/* Special animation for alert messages */
+@keyframes alert
+{
+  0% {
+    transform: translateY(-21rem);
+  }
+
+  50% {
+    transform: translateY(21rem);
+  }
+}
+
+
+/* ****************** */
+/* ***** Layout ***** */
+
+
+/* ***** Global ***** */
+
+
+body {
+  font-family: 'neris', sans-serif;
+}
+
 
 /* ***** Titles ***** */
 
 h1 {
+  font-family: 'luxi', serif;
   text-align: center;
 }
 
 h2 {
   padding: .5rem 1rem;
+  font-family: 'sansation', sans-serif;
 }
-
-h3 {
-  padding: .4rem .8rem;
-}
-
-h4 {
-  padding: .3rem .6rem;
-}
-
-h5 {
-  padding: .2rem .4rem;
-}
-
-h6 {
-  padding: .1rem .2rem;
-}
-
-
 
 
 /* ***** Tables ***** */
+
+table,
+table .btn {
+  font-family: 'fantasque', sans-serif;
+}
 
 th, td {
   border: thin solid;
   padding: 1rem;
 }
 
+
+/* ***** Forms ***** */
+
+form {
+  font-family: 'quantico', sans-serif;
+}
+
+/* ***** Medias ***** */
+
+figure {
+  max-width: 25rem;
+}
+
+figure img,
+figcaption {
+  padding: 1rem;
+}
+
+/* ***** Footer ***** */
+
+.license {
+  display: block;
+  padding: .5rem 0;
+  cursor: help;
+}
 
 
 /* ***** Ids ***** */
@@ -57,7 +191,6 @@ th, td {
   animation: alert 10s;
 }
 
-
 #jim-help {
   position: fixed;
   top: 13rem;
@@ -74,12 +207,57 @@ th, td {
 
 
 
-/* ***** Footer ***** */
+/* **************** */
+/* ***** Main ***** */
 
-.license {
-  display: block;
-  padding: .5rem 0;
-  cursor: help;
+main {
+  padding: 5rem 0;
 }
 
-/* Put your project style here */
+/* ***** Home ***** */
+
+#home img,
+#home svg {
+  max-height: 15rem;
+  max-width: 15rem;
+}
+
+
+/* ***** Blog ***** */
+
+#blog img {
+  max-height: 15rem;
+  max-width: 15rem;
+}
+
+#blog p,
+#article p {
+  font-family: 'elite', serif;
+}
+
+
+
+/* ***** Admin ***** */
+
+
+#admin h2 {
+  text-decoration: underline wavy;
+}
+
+#admin h2 + a {
+  margin-bottom: 3rem;
+}
+
+#admin td {
+  hyphens: auto;
+  word-wrap: break-word;
+}
+
+#admin img {
+  max-height: 10rem;
+  max-width: 10rem;
+}
+
+#admin td:last-of-type {
+  width: 7rem;
+}
