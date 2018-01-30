@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7c444119529e1a1f00868eb7bbe4830e",
-    "content-hash": "67a5961fc927543dcdf8746f7032f40a",
+    "hash": "45cef2ed7093a23ce62a7761d1a8c08c",
+    "content-hash": "04982ef79e94eb34be0162e81abd0912",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -264,16 +264,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "4.2.0",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "66465776cfc249844bde6d117abff1d22e06c2da"
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/66465776cfc249844bde6d117abff1d22e06c2da",
-                "reference": "66465776cfc249844bde6d117abff1d22e06c2da",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/94fd0001232e47129dd3504189fa1c7225010d08",
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08",
                 "shasum": ""
             },
             "require": {
@@ -311,7 +311,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-11-27 17:38:31"
+            "time": "2017-11-30 07:14:17"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -817,16 +817,16 @@
         },
         {
             "name": "pjs/pam",
-            "version": "0.1.6",
+            "version": "0.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/philippebeck/pam.git",
-                "reference": "ea9085316c08e16dd1e657c3dc43e545a2a3eaf0"
+                "reference": "7113b3c3f10714d52c8a2e774282f6d02b9dc113"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/philippebeck/pam/zipball/ea9085316c08e16dd1e657c3dc43e545a2a3eaf0",
-                "reference": "ea9085316c08e16dd1e657c3dc43e545a2a3eaf0",
+                "url": "https://api.github.com/repos/philippebeck/pam/zipball/7113b3c3f10714d52c8a2e774282f6d02b9dc113",
+                "reference": "7113b3c3f10714d52c8a2e774282f6d02b9dc113",
                 "shasum": ""
             },
             "require": {
@@ -846,7 +846,7 @@
                 {
                     "name": "Philippe Beck",
                     "email": "philippe@philippebeck.net",
-                    "homepage": "http://philippebeck.net",
+                    "homepage": "https://philippebeck.net",
                     "role": "Developer"
                 }
             ],
@@ -856,7 +856,7 @@
                 "mvc",
                 "php"
             ],
-            "time": "2018-01-19 13:27:17"
+            "time": "2018-01-29 14:39:17"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1584,16 +1584,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f"
+                "reference": "0df1908962e7a3071564e857d86874dad1ef204a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/2db61e59ff05fe5126d152bd0655c9ea113e550f",
-                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/0df1908962e7a3071564e857d86874dad1ef204a",
+                "reference": "0df1908962e7a3071564e857d86874dad1ef204a",
                 "shasum": ""
             },
             "require": {
@@ -1630,7 +1630,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2016-11-23 20:04:58"
+            "time": "2018-01-29 19:49:41"
         }
     ],
     "packages-dev": [],
