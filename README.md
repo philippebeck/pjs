@@ -18,7 +18,7 @@ How to install in 5 steps :
 4 / And, for Pjs could access to the database, put your phpMyAdmin password in the file :
   app/config.php
 
-5 / Finally, for front-end dependencies, type in your terminal :
+5 / Finally, for front-end dependencies, within your web folder, type in the terminal :
   $ npm install
 
 
@@ -44,7 +44,7 @@ Pjs is a study project, but don't hesitate to send issues or pull requests, I wi
 
 # Documentation
 
-All documentations will be available the next week...
+Documentation is available here => https://philippebeck.net/index.php?access=pjs
 
 
 # Contribution
