@@ -22,7 +22,7 @@
   "homepage": "https://github.com/philippebeck/pjs#readme",
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "jim-js": "^0.1.4",
-    "sam.scss": "^0.1.15"
+    "jim-js": "^0.1.6",
+    "sam.scss": "^0.1.21"
   }
 }
