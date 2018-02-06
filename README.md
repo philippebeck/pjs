@@ -44,8 +44,8 @@ Pjs is a study project, but don't hesitate to send issues or pull requests, I wi
 
 # Documentation
 
-Documentation will be available in English in the wiki of this repository as soon as possible
-Documentation is available in French here => https://philippebeck.net/index.php?access=pjs
+- Documentation will be available in English in the wiki of this repository as soon as possible
+- Documentation is available in French here => https://philippebeck.net/index.php?access=pjs
 
 
 # Contribution
