@@ -44,8 +44,15 @@ Pjs is a study project, but don't hesitate to send issues or pull requests, I wi
 
 # Documentation
 
-- Documentation will be available in English in the wiki of this repository as soon as possible
-- Documentation is available in French here => https://philippebeck.net/index.php?access=pjs
+Documentations are available for each tools inside PJS in French here :
+- Pam => https://philippebeck.net/index.php?access=pjs%21pam
+- Jim => https://philippebeck.net/index.php?access=pjs%21jim
+- Sam => https://philippebeck.net/index.php?access=pjs%21sam
+
+Documentations are available for each tools inside PJS in English here :
+- Pam => https://github.com/philippebeck/pam/wiki
+- Jim => https://github.com/philippebeck/jim/wiki
+- Sam => https://github.com/philippebeck/sam/wiki (soon)
 
 
 # Contribution

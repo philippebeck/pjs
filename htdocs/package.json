@@ -1,6 +1,6 @@
 {
   "name": "pjs",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "PJS, a micro-CMS for coding in pyjamas, with Pam, Jim & Sam",
   "main": "index.php",
   "repository": {
@@ -22,7 +22,7 @@
   "homepage": "https://github.com/philippebeck/pjs#readme",
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "jim-js": "^0.1.6",
-    "sam.scss": "^0.1.21"
+    "jim-js": "^0.2.0",
+    "sam.scss": "^0.2.0"
   }
 }

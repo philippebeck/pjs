@@ -1,6 +1,6 @@
 {
   "name": "pjs/pjs",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/philippebeck/pjs"
@@ -27,7 +27,7 @@
   "require": {
     "twig/twig": "^2.0",
     "phpunit/phpunit": "^6.4",
-    "pjs/pam": "^0.1.12"
+    "pjs/pam": "^0.2.0"
   },
   "config": {
     "platform": {
