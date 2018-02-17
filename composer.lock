@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e8469e91c933d8e317cd505c01d88e49",
-    "content-hash": "e69b94c1118b2086f7e201cfc510dbad",
+    "hash": "7942277738f82f9d9766c7dcd71d3fb4",
+    "content-hash": "c38078c6f0c13947bbb47ebe46413baf",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -817,16 +817,16 @@
         },
         {
             "name": "pjs/pam",
-            "version": "0.2.1",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/philippebeck/pam.git",
-                "reference": "ac1e32949132296bc9e2bc1b5576cdb1de2b5443"
+                "reference": "cd026917fd228fc2429e22a4ecf9d7d655a07447"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/philippebeck/pam/zipball/ac1e32949132296bc9e2bc1b5576cdb1de2b5443",
-                "reference": "ac1e32949132296bc9e2bc1b5576cdb1de2b5443",
+                "url": "https://api.github.com/repos/philippebeck/pam/zipball/cd026917fd228fc2429e22a4ecf9d7d655a07447",
+                "reference": "cd026917fd228fc2429e22a4ecf9d7d655a07447",
                 "shasum": ""
             },
             "require": {
@@ -856,7 +856,7 @@
                 "mvc",
                 "php"
             ],
-            "time": "2018-02-17 08:22:08"
+            "time": "2018-02-17 10:18:59"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
