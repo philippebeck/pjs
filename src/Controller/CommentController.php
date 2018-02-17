@@ -35,14 +35,14 @@ class CommentController extends Controller
       ModelFactory::get('Comment')->create($data);
 
       // Creates a valid message to confirm the creation of a new comment
-      Session::createAlert('New comment created successfully !', 'valid');
+      htmlspecialchars(Session::createAlert('New comment created successfully !', 'valid'));
 
       // Redirects to the view readArticle
       $this->redirect('article!read', ['id' => $_GET['id']]);
     }
     else {
       // Creates a fail message to ask to be connected
-      Session::createAlert('You must be logged in to add a comment...', 'cancel');
+      htmlspecialchars(Session::createAlert('You must be logged in to add a comment...', 'cancel'));
     }
     // Redirects to the view loginUser
     $this->redirect('user!login');
@@ -61,7 +61,7 @@ class CommentController extends Controller
     ModelFactory::get('Comment')->delete($id);
 
     // Creates a delete message to confirm the removal of the selected comment
-    Session::createAlert('Comment permanently deleted !', 'delete');
+    htmlspecialchars(Session::createAlert('Comment permanently deleted !', 'delete'));
 
     // Redirects to the view admin
     $this->redirect('admin');

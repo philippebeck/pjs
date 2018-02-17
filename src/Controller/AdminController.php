@@ -45,7 +45,7 @@ class AdminController extends Controller
       }
       else {
         // Creates a warning message to inform that only the admin can access to this page
-        Session::createAlert('Access reserved for the site administrator', 'warning');
+        htmlspecialchars(Session::createAlert('Access reserved for the site administrator', 'warning'));
 
         // Redirects to the view home
         $this->redirect('home');
@@ -53,7 +53,7 @@ class AdminController extends Controller
     }
     else {
       // Creates a cancel message to ask to be connected
-      Session::createAlert('You must be logged in to access the administration', 'cancel');
+      htmlspecialchars(Session::createAlert('You must be logged in to access the administration', 'cancel'));
 
       // Redirects to the view loginUser
       $this->redirect('user!login');

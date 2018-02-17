@@ -54,7 +54,7 @@ class ArticleController extends Controller
       ModelFactory::get('Article')->create($data);
 
       // Creates a valid message to confirm the creation of a new article
-      Session::createAlert('New article created successfully !', 'valid');
+      htmlspecialchars(Session::createAlert('New article created successfully !', 'valid'));
 
       // Redirects to the admin
       $this->redirect('admin');
@@ -131,7 +131,7 @@ class ArticleController extends Controller
       ModelFactory::get('Article')->update($id, $data);
 
       // Creates an info message to confirm the update of the selected article
-      Session::createAlert('Successful modification of the selected article !', 'info');
+      htmlspecialchars(Session::createAlert('Successful modification of the selected article !', 'info'));
 
       // Redirects to the admin
       $this->redirect('admin');
@@ -156,7 +156,7 @@ class ArticleController extends Controller
     ModelFactory::get('Article')->delete($id);
 
     // Creates a delete message to confirm the removal of the selected article
-    Session::createAlert('Article permanently deleted !', 'delete');
+    htmlspecialchars(Session::createAlert('Article permanently deleted !', 'delete'));
 
     // Redirects to the admin
     $this->redirect('admin');
