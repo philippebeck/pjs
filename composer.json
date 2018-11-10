@@ -1,20 +1,24 @@
 {
   "name": "pjs/pjs",
-  "version": "0.2.4",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/philippebeck/pjs"
-  },
-  "type": "CMS",
+  "version": "0.2.5",
+  "type": "cms",
   "description": "PJS, a micro-CMS for coding in pyjamas, with Pam, Jim & Sam",
-  "keywords": ["cms","php","mvc","js","event","css","scss"],
+  "keywords": [
+    "cms",
+    "php",
+    "mvc",
+    "js",
+    "event",
+    "css",
+    "scss"
+  ],
   "license": "MIT",
   "authors": [
     {
       "name": "Philippe Beck",
       "email": "philippe@philippebeck.net",
-      "homepage": "http://philippebeck.net",
-      "role": "Developer"
+      "homepage": "https://philippebeck.net",
+      "role": "Lead Developer"
     }
   ],
   "autoload": {
@@ -25,12 +29,13 @@
     }
   },
   "require": {
-    "phpunit/phpunit": "^6.4",
-    "pjs/pam": "^0.2.3"
+    "php": "^7.0",
+    "phpunit/phpunit": "^6.5",
+    "pjs/pam": "^0.2.5"
   },
   "config": {
     "platform": {
-      "php": "7.0.22"
+      "php": "7.0"
     }
   }
 }
