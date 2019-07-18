@@ -23,7 +23,7 @@ class CommentController extends Controller
       ModelFactory::get('Comment')->create($data);
       $this->cookie->createAlert('New comment created successfully !');
 
-      $this->redirect('article!read', ['id' => $_GET['id']]);
+      $this->redirect('article!read', ['id' => $this->get->getGetVar('id')]);
     }
     $this->cookie->createAlert('You must be logged in to add a comment...');
 
