@@ -9,16 +9,16 @@ A microCMS for coding in Pyjamas
 
 How to install in 5 steps :
 
-1   Install via Composer : $ composer require pjs/pjs  
-2   After that, you need to copy inside your project folder the content of the folder : "vendor/pjs/pjs"  
-3   Then, to construct a fonctional database, go to your phpMyAdmin to import the file : app/pjs.sql  
-4   And, for Pjs could access to the database, put your phpMyAdmin password in the file : app/config.php  
-5   Finally, for front-end dependencies, within your web folder, type in the terminal : $ npm install  
+1   Install via Composer : `$ composer require pjs/pjs`  
+2   After that, you need to copy inside your project folder the content of the folder : `/vendor/pjs/pjs`  
+3   Then, to construct a fonctional database, go to your phpMyAdmin to import the file : `/app/pjs.sql`  
+4   And, for Pjs could access to the database, put your phpMyAdmin password in the file : `/app/config.php`  
+5   Finally, for front-end dependencies, within your web folder, type in the terminal : `$ npm install`  
 
 If something wrong :
 -   Check the config file & your PhpMyAdmin parameters to verify if passwords match  
--   Type in your terminal at the root of the project => $ composer dump-autoload  
--   Send an Issue => https://github.com/philippebeck/pjs/issues  
+-   Type in your terminal at the root of the project => `$ composer dump-autoload`  
+-   Send an Issue => [https://github.com/philippebeck/pjs/issues](https://github.com/philippebeck/pjs/issues)  
 
 ---
 
