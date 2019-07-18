@@ -1,4 +1,5 @@
 .idea/
 config/bdd.sql
+public/fonts/
 public/node_modules/
 vendor/
