@@ -1,13 +1,8 @@
 <?php
 
-// ********************** \\
-// ***** USER MODEL ***** \\
-// ********************** \\
-
 namespace App\Model;
 
 use Pam\Model\Model;
-
 
 /** *************\
  * CRUD for users
