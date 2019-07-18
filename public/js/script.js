@@ -1,16 +1,8 @@
-// *********************** \\
 // ***** MAIN SCRIPT ***** \\
-// *********************** \\
 
+"use strict";
 
-
-// Strict mode
-'use strict';
-
-
-
-// Waits the complete page loading to launch the scripts
-document.addEventListener('DOMContentLoaded', function(e)
+document.addEventListener("DOMContentLoaded", function(e)
 {
   // Put your project script here
   }
