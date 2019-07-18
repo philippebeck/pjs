@@ -1,6 +1,6 @@
 {
   "name": "pjs/pjs",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "type": "cms",
   "description": "PJS, a micro-CMS for coding in pyjamas, with Pam, Jim & Sam",
   "keywords": [

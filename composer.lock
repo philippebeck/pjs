@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9af13edb315bed5db8249a74fbecf92b",
+    "content-hash": "9a0b6a825d4d43712c0b395925e15ccb",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -822,16 +822,16 @@
         },
         {
             "name": "pjs/pam",
-            "version": "0.5.2",
+            "version": "0.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/philippebeck/pam.git",
-                "reference": "edc47a95c597a2a26e85654eb08555508b283115"
+                "reference": "330dce4431404f805b73330d44108ce2815d22ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/philippebeck/pam/zipball/edc47a95c597a2a26e85654eb08555508b283115",
-                "reference": "edc47a95c597a2a26e85654eb08555508b283115",
+                "url": "https://api.github.com/repos/philippebeck/pam/zipball/330dce4431404f805b73330d44108ce2815d22ed",
+                "reference": "330dce4431404f805b73330d44108ce2815d22ed",
                 "shasum": ""
             },
             "require": {
@@ -864,7 +864,7 @@
                 "mvc",
                 "php"
             ],
-            "time": "2019-07-18T18:08:23+00:00"
+            "time": "2019-07-18T19:09:53+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
