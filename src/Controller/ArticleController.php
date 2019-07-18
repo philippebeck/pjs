@@ -87,7 +87,7 @@ class ArticleController extends Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function UpdateAction()
+    public function updateAction()
   {
     if (!empty($this->post->getPostArray())) {
 
@@ -110,7 +110,7 @@ class ArticleController extends Controller
     return $this->render('admin/blog/updateArticle.twig', ['article' => $article]);
   }
 
-    public function DeleteAction()
+    public function deleteAction()
   {
     ModelFactory::get('Article')->delete($this->get->getGetVar('id'));
     $this->cookie->createAlert('Article permanently deleted !');
