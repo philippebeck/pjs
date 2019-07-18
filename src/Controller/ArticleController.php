@@ -35,7 +35,7 @@ class ArticleController extends Controller
      */
     public function createAction()
   {
-    if (!empty($_POST)) {
+    if (!empty($this->post->getPostArray())) {
       $data['image'] = $this->files->uploadFile('img/blog');
 
       $data['title']        = $this->post->getPostVar('title');
