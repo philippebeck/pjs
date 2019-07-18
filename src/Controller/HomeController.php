@@ -1,27 +1,23 @@
 <?php
 
-// *************************** \\
-// ***** HOME CONTROLLER ***** \\
-// *************************** \\
-
 namespace App\Controller;
 
 use Pam\Controller\Controller;
 
-
-/** *****************************\
-* All control actions to the home
-*/
+/**
+ * Class HomeController
+ * @package App\Controller
+ */
 class HomeController extends Controller
 {
-
-  /** ******************\
-  * Render the main view
-  * @return mixed => the rendering of the view home
-  */
-  public function IndexAction()
+    /**
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function IndexAction()
   {
-    // Returns the rendering of the view home
     return $this->render('home.twig');
   }
 }
