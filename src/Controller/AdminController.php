@@ -1,62 +1,47 @@
 <?php
 
-// **************************** \\
-// ***** ADMIN CONTROLLER ***** \\
-// **************************** \\
-
 namespace App\Controller;
 
 use Pam\Controller\Controller;
 use Pam\Model\ModelFactory;
-use Pam\Helper\Session;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
-use App\Helper\User;
-
-
-/** ***************************************\
-* All control actions to the administration
-*/
+/**
+ * Class AdminController
+ * @package App\Controller
+ */
 class AdminController extends Controller
 {
-
-  /** *********************************************************************\
-  * Reads all objects for CRUD actions from the database, then display them
-  * @return mixed => the rendering of the view admin
-  */
-  public function IndexAction()
+    /**
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function IndexAction()
   {
-    // Checks if the user is connected
-    if (Session::islogged())
-    {
-      // Checks if the user is the administrator
-      if (Session::userEmail() == User::adminEmail())
-      {
-        // Reads all articles, users & comments, then stores them
+    if ($this->session->islogged()) {
+
+      if ($this->session->userEmail()) {
+
         $allArticles  = ModelFactory::get('Article')->list();
         $allComments  = ModelFactory::get('Comment')->list();
         $allUsers     = ModelFactory::get('User')   ->list();
 
-        // Returns the rendering of the view admin with the user datas
         return $this->render('admin/admin.twig', [
           'allArticles'       => $allArticles,
           'allComments'       => $allComments,
           'allUsers'          => $allUsers
         ]);
       }
-      else {
-        // Creates a warning message to inform that only the admin can access to this page
-        htmlspecialchars(Session::createAlert('Access reserved for the site administrator', 'warning'));
+      $this->cookie->createAlert('Access reserved for the site administrator');
 
-        // Redirects to the view home
-        $this->redirect('home');
-      }
+      $this->redirect('home');
     }
-    else {
-      // Creates a cancel message to ask to be connected
-      htmlspecialchars(Session::createAlert('You must be logged in to access the administration', 'cancel'));
+    $this->cookie->createAlert('You must be logged in to access the administration');
 
-      // Redirects to the view loginUser
-      $this->redirect('user!login');
-    }
+    $this->redirect('user!login');
   }
 }
