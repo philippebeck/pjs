@@ -3,6 +3,9 @@
 namespace App\Controller;
 
 use Pam\Controller\Controller;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 /**
  * Class HomeController
@@ -12,9 +15,9 @@ class HomeController extends Controller
 {
     /**
      * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function IndexAction()
   {
