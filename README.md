@@ -40,9 +40,9 @@ Pjs is a study project, but don't hesitate to send issues or pull requests, I wi
 ## Documentation
 
 Documentations are available for each tools inside PJS here :
--   Pam => https://github.com/philippebeck/pam/wiki  
--   Jim => https://github.com/philippebeck/jim/wiki  
--   Sam => https://github.com/philippebeck/sam/wiki (part)  
+-   Pam => [https://github.com/philippebeck/pam/wiki](https://github.com/philippebeck/pam/wiki)  
+-   Jim => [https://github.com/philippebeck/jim-js/wiki](https://github.com/philippebeck/jim-js/wiki)  
+-   Sam => [https://github.com/philippebeck/sam.scss/wiki](https://github.com/philippebeck/sam.scss/wiki) (part)  
 
 ---
 
