@@ -24,18 +24,17 @@
   "autoload": {
     "psr-4": {
       "App\\": "src/",
-      "Tests\\": "tests/",
-      "Pam\\": "vendor/pjs/pam/"
+      "Tests\\": "tests/"
     }
   },
   "require": {
-    "php": "^7.0",
-    "phpunit/phpunit": "^6.5",
-    "pjs/pam": "^0.2.5"
+    "php": "^7.2",
+    "phpunit/phpunit": "6.x",
+    "pjs/pam": "0.x"
   },
   "config": {
     "platform": {
-      "php": "7.0"
+      "php": "7.2"
     }
   }
 }
