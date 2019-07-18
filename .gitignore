@@ -1,2 +1,4 @@
-htdocs/node_modules/
+.idea/
+config/bdd.sql
+public/node_modules/
 vendor/
