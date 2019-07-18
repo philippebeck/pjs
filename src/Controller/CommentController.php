@@ -1,69 +1,40 @@
 <?php
 
-// ****************************** \\
-// ***** COMMENT CONTROLLER ***** \\
-// ****************************** \\
-
 namespace App\Controller;
 
 use Pam\Controller\Controller;
 use Pam\Model\ModelFactory;
-use Pam\Helper\Session;
 
-
-/** *********************************\
-* All control actions to the comments
-*/
+/**
+ * Class CommentController
+ * @package App\Controller
+ */
 class CommentController extends Controller
 {
-
-  /** ********************\
-   * Creates a new comment
-   */
-  public function CreateAction()
+    public function createAction()
   {
-    // Checks if the user is connected
-    if (Session::islogged())
-    {
-      // Creates the $data array to store the new comment
-      $data['article_id']   = $_GET['id'];
-      $data['content']      = $_POST['content'];
-      $data['created_date'] = $_POST['date'];
-      $data['user_id']      = $_SESSION['user']['id'];
+    if ($this->session->islogged()) {
 
-      // Creates the comment
+      $data['article_id']   = $this->get->getGetVar('id');
+      $data['content']      = $this->post->getPostVar('content');
+      $data['created_date'] = $this->post->getPostVar('date');
+      $data['user_id']      = $this->session->userId();
+
       ModelFactory::get('Comment')->create($data);
+      $this->cookie->createAlert('New comment created successfully !');
 
-      // Creates a valid message to confirm the creation of a new comment
-      htmlspecialchars(Session::createAlert('New comment created successfully !', 'valid'));
-
-      // Redirects to the view readArticle
       $this->redirect('article!read', ['id' => $_GET['id']]);
     }
-    else {
-      // Creates a fail message to ask to be connected
-      htmlspecialchars(Session::createAlert('You must be logged in to add a comment...', 'cancel'));
-    }
-    // Redirects to the view loginUser
+    $this->cookie->createAlert('You must be logged in to add a comment...');
+
     $this->redirect('user!login');
   }
 
-
-  /** ****************\
-   * Deletes a comment
-   */
-  public function DeleteAction()
+    public function deleteAction()
   {
-    // Gets the comment id, then stores it
-    $id = $_GET['id'];
+    ModelFactory::get('Comment')->delete($this->get->getGetVar('id'));
+    $this->cookie->createAlert('Comment permanently deleted !');
 
-    // Deletes the selected comment
-    ModelFactory::get('Comment')->delete($id);
-
-    // Creates a delete message to confirm the removal of the selected comment
-    htmlspecialchars(Session::createAlert('Comment permanently deleted !', 'delete'));
-
-    // Redirects to the view admin
     $this->redirect('admin');
   }
 }
