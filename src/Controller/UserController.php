@@ -22,13 +22,13 @@ class UserController extends Controller
      */
     public function loginAction()
   {
-    if (!empty($this->post)) {
-      $user = ModelFactory::get('User')->read($this->post['email'], 'email');
+    if (!empty($this->post->getPostArray())) {
+      $user = ModelFactory::get('User')->read($this->post->getPostVar('email'), 'email');
 
-      if (password_verify($this->post['pass'], $user['pass'])) {
+      if (password_verify($this->post->getPostVar('pass'), $user['pass'])) {
         $this->session->createSession(
           $user['id'],
-          $user['first_name'],
+          $user['name'],
           $user['image'],
           $user['email']
         );
@@ -62,22 +62,17 @@ class UserController extends Controller
     public function createAction()
   {
     if (!empty($this->post)) {
-      $user = ModelFactory::get('User')->read($this->post['email'], 'email');
+      $user = ModelFactory::get('User')->read($this->post->getPostVar('email'), 'email');
 
       if (empty($user) == false) {
         $this->cookie->createAlert('There is already a user account with this email address');
       }
       $data['image'] = $this->files->uploadFile('img/user');
 
-      $data['pass'] = password_hash($this->post['pass'], PASSWORD_DEFAULT);
+      $data['pass'] = password_hash($this->post->getPostVar('pass'), PASSWORD_DEFAULT);
 
-      $data['first_name']   = $this->post['first_name'];
-      $data['last_name']    = $this->post['last_name'];
-      $data['zipcode']      = $this->post['zipcode'];
-      $data['country']      = $this->post['country'];
-      $data['email']        = $this->post['email'];
-      $data['created_date'] = $this->post['date'];
-      $data['updated_date'] = $this->post['date'];
+      $data['name']     = $this->post['name'];
+      $data['email']    = $this->post['email'];
 
       ModelFactory::get('User')->create($data);
       $this->cookie->createAlert('New user created successfully !');
@@ -97,18 +92,14 @@ class UserController extends Controller
   {
     if (!empty($this->post)) {
 
-      if (!empty($_FILES['file']['name'])) {
+      if (!empty($this->files->getFileVar('name'))) {
         $data['image'] = $this->files->uploadFile('img/user');
       }
 
-      $data['pass'] = password_hash($this->post['pass'], PASSWORD_DEFAULT);
+      $data['pass'] = password_hash($this->post->getPostVar('pass'), PASSWORD_DEFAULT);
 
-      $data['first_name']   = $this->post['first_name'];
-      $data['last_name']    = $this->post['last_name'];
-      $data['zipcode']      = $this->post['zipcode'];
-      $data['country']      = $this->post['country'];
-      $data['email']        = $this->post['email'];
-      $data['updated_date'] = $this->post['date'];
+      $data['name']     = $this->post->getPostVar('name');
+      $data['email']    = $this->post->getPostVar('email');
 
       ModelFactory::get('User')->update($this->get->getGetVar('id'), $data);
       $this->cookie->createAlert('Successful modification of the selected user !');
