@@ -1,185 +1,130 @@
 <?php
 
-// *************************** \\
-// ***** USER CONTROLLER ***** \\
-// *************************** \\
-
 namespace App\Controller;
 
 use Pam\Controller\Controller;
 use Pam\Model\ModelFactory;
-use Pam\Helper\Session;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
-
-/** ********************************
-* All control actions to the gallery
-*/
+/**
+ * Class UserController
+ * @package App\Controller
+ */
 class UserController extends Controller
 {
-
-  /** *******************************************************\
-  * Checks if the user is registred & if his password matches
-  * Then connects him if it's alright
-  * Otherwise, display the login form
-  * @return mixed => the rendering of the login form page
-  */
-  public function LoginAction()
+    /**
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function loginAction()
   {
-    // Checks if the form has been completed
-    if (!empty($_POST))
-    {
-      // Search the user in the DB
-      $user = ModelFactory::get('User')->read($_POST['email'], 'email');
+    if (!empty($this->post)) {
+      $user = ModelFactory::get('User')->read($this->post['email'], 'email');
 
-      // Checks if the password is correct
-      if (password_verify($_POST['pass'], $user['pass']))
-      {
-        // Creates the user session
-        Session::createSession(
+      if (password_verify($this->post['pass'], $user['pass'])) {
+        $this->session->createSession(
           $user['id'],
           $user['first_name'],
           $user['image'],
           $user['email']
         );
-        // Creates a custom message to welcome the user
-        htmlspecialchars(Session::createAlert('Successful authentication, welcome ' . $user['first_name'] .' !', 'special'));
 
-        // Redirects to the view home
+        $this->cookie->createAlert('Successful authentication, welcome ' . $user['first_name'] .' !');
+
         $this->redirect('home');
       }
-      else {
-        // Creates an authentification fail message
-        htmlspecialchars(Session::createAlert('Failed authentication !', 'cancel'));
-      }
+      $this->cookie->createAlert('Failed authentication !');
     }
-    // Returns the rendering of the view loginUser
     return $this->render('user/loginUser.twig');
   }
 
-
-  /** ****************************\
-  * Destroys the session to logout
-  */
-  public function LogoutAction()
+    /**
+     *
+     */
+    public function logoutAction()
   {
-    // Destroys the user session
-    Session::destroySession();
+    $this->session->destroySession();
+    $this->cookie->createAlert('Good bye !');
 
-    // Redirects to the view home
     $this->redirect('home');
   }
 
-
-  /** ****************\
-  * Creates a new user
-  * @return mixed => the rendering of the view createUser
-  */
-  public function CreateAction()
+    /**
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function createAction()
   {
-    // Checks if the form has been completed
-    if (!empty($_POST))
-    {
-      // Search the user in the DB
-      $user = ModelFactory::get('User')->read($_POST['email'], 'email');
+    if (!empty($this->post)) {
+      $user = ModelFactory::get('User')->read($this->post['email'], 'email');
 
-      // Checks if the user exists already
-      if (empty($user) == false)
-      {
-        // Creates a fail message to inform that an existing account uses this email address
-        htmlspecialchars(Session::createAlert('There is already a user account with this email address'));
+      if (empty($user) == false) {
+        $this->cookie->createAlert('There is already a user account with this email address');
       }
-      // Uploads the image & gets back the file name
-      $data['image'] = $this->upload('img/user');
+      $data['image'] = $this->files->uploadFile('img/user');
 
-      // Hashes the user password
-      $data['pass'] = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+      $data['pass'] = password_hash($this->post['pass'], PASSWORD_DEFAULT);
 
-      // Creates the $data array to store the new user
-      $data['first_name']   = $_POST['first_name'];
-      $data['last_name']    = $_POST['last_name'];
-      $data['zipcode']      = $_POST['zipcode'];
-      $data['country']      = $_POST['country'];
-      $data['email']        = $_POST['email'];
-      $data['created_date'] = $_POST['date'];
-      $data['updated_date'] = $_POST['date'];
+      $data['first_name']   = $this->post['first_name'];
+      $data['last_name']    = $this->post['last_name'];
+      $data['zipcode']      = $this->post['zipcode'];
+      $data['country']      = $this->post['country'];
+      $data['email']        = $this->post['email'];
+      $data['created_date'] = $this->post['date'];
+      $data['updated_date'] = $this->post['date'];
 
-      // Creates a new user
       ModelFactory::get('User')->create($data);
+      $this->cookie->createAlert('New user created successfully !');
 
-      // Creates a valid message to confirm the creation of a new user
-      htmlspecialchars(Session::createAlert('New user created successfully !', 'valid'));
-
-      // Redirects to the view home
       $this->redirect('home');
     }
-    else {
-      // Returns the rendering of the view createUser with the empty fields
-      return $this->render('user/createUser.twig');
-    }
+    return $this->render('user/createUser.twig');
   }
 
-
-  /** ************\
-  * Updates a user
-  * @return mixed => the rendering of the view updateUser
-  */
-  public function UpdateAction()
+    /**
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function updateAction()
   {
-    // Gets the article id, then stores it
-    $id = $_GET['id'];
+    if (!empty($this->post)) {
 
-    // Checks if the form has been completed
-    if (!empty($_POST))
-    {
-      // Checks if a new file has been uploaded
-      if (!empty($_FILES['file']['name']))
-      {
-        // Uploads the user image, then stores it
-        $data['image'] = $this->upload('img/user');
+      if (!empty($_FILES['file']['name'])) {
+        $data['image'] = $this->files->uploadFile('img/user');
       }
-      // Hashes the user password
-      $data['pass'] = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
-      // Retrieves form data, then stores the user
-      $data['first_name']   = $_POST['first_name'];
-      $data['last_name']    = $_POST['last_name'];
-      $data['zipcode']      = $_POST['zipcode'];
-      $data['country']      = $_POST['country'];
-      $data['email']        = $_POST['email'];
-      $data['updated_date'] = $_POST['date'];
+      $data['pass'] = password_hash($this->post['pass'], PASSWORD_DEFAULT);
 
-      // Updates the selected user
-      ModelFactory::get('User')->update($id, $data);
+      $data['first_name']   = $this->post['first_name'];
+      $data['last_name']    = $this->post['last_name'];
+      $data['zipcode']      = $this->post['zipcode'];
+      $data['country']      = $this->post['country'];
+      $data['email']        = $this->post['email'];
+      $data['updated_date'] = $this->post['date'];
 
-      // Creates an info message to confirm the update of the selected user
-      htmlspecialchars(Session::createAlert('Successful modification of the selected user !', 'info'));
+      ModelFactory::get('User')->update($this->get->getGetVar('id'), $data);
+      $this->cookie->createAlert('Successful modification of the selected user !');
 
-      // Redirects to the view home
       $this->redirect('home');
     }
-    // Reads the selected user, then stores it
-    $user = ModelFactory::get('User')->read($id);
+    $user = ModelFactory::get('User')->read($this->get->getGetVar('id'));
 
-    // Returns the rendering of the view updateUser with the current user
     return $this->render('user/updateUser.twig', ['user' => $user]);
   }
 
-
-  /** ************\
-  * Deletes a user
-  */
-  public function DeleteAction()
+    public function deleteAction()
   {
-    // Gets the user id, then stores it
-    $id = $_GET['id'];
+    ModelFactory::get('User')->delete($this->get->getGetVar('id'));
+    $this->cookie->createAlert('User permanently deleted !');
 
-    // Deletes the selected user
-    ModelFactory::get('User')->delete($id);
-
-    // Creates a delete message to confirm the removal of the selected user
-    htmlspecialchars(Session::createAlert('User permanently deleted !'));
-
-    // Redirects to the view home
     $this->redirect('home');
   }
 }
