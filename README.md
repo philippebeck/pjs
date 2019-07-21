@@ -10,11 +10,11 @@ Pam, Jim, Sam & Myself
 ## Overview
 
 You will find a lot of features to construct a website :  
--   Php classes provided by Pam, the Php Appoachable Microframework  
--   JavaScript functions provided by Jim, the Javascript Interactive Microlibrary  
--   Css classes provided by Sam, the Scss Animated Microframework  
--   Filters & classes in the views by Twig, the Symfony Template Engine  
--   And others tools provided by Pjs, the microCMS  
+-   Php classes provided by Pam
+-   JavaScript functions provided by Jim
+-   Css classes provided by Sam  
+-   Filters & classes in the views by Twig 
+-   And others tools provided by Pjs
 
 Pjs was a study project, but don't hesitate to send issues or pull requests, I will watch them promptly with interest...
 
@@ -24,7 +24,6 @@ Pjs was a study project, but don't hesitate to send issues or pull requests, I w
 -   [Download](#download)  
 -   [Installation](#installation)  
 -   [Content](#content)  
--   [Language](#language)  
 -   [Support](#support)  
 -   [Open-Source](#open-source)  
 -   [Issues](#issues)  
@@ -78,14 +77,6 @@ The project contains 3 homemade tools :
 -   Sam => Scss Animated Microframework  
 
 [![CSS Code Size](https://img.shields.io/github/languages/code-size/philippebeck/pjs.svg?label=Code+Size)](https://github.com/philippebeck/pjs/tree/master)
-
----
-
-## Language
-
-PJS is wrote with PHP
-
-[![GitHub Top Language](https://img.shields.io/github/languages/top/philippebeck/pjs.svg?label=PHP)](https://github.com/philippebeck/pjs)
 
 ---
 
