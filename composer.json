@@ -1,6 +1,6 @@
 {
   "name": "pjs/pjs",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "type": "project",
   "description": "PJS, a micro-CMS for coding in pyjamas, with Pam, Jim & Sam",
   "keywords": [
@@ -28,7 +28,7 @@
   },
   "require": {
     "php": "^7.2",
-    "pjs/pam": "2.0.4"
+    "philippebeck/pam": "2.0.4"
   },
   "config": {
     "platform": {
