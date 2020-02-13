@@ -108,12 +108,12 @@
         {% if (isLogged()) %}
 
         <li>
-          <p>Hello {{ userName() }} !</p>
+          <p>Hello {{ getUserVar('name') }} !</p>
         </li>
 
         <li>
-          <a href="{{ url('user!update', {'id': userId()}) }}" title="Edit my profile">
-            <img class="solid-round-sm" src="img/user/{{ userImage() }}" alt="User Picture">
+          <a href="{{ url('user!update', {'id': getUserVar('id')}) }}" title="Edit my profile">
+            <img class="solid-round-sm" src="img/user/{{ getUserVar('image') }}" alt="User Picture">
           </a>
         </li>
 
@@ -124,7 +124,7 @@
           </a>
         </li>
 
-        {% if (userEmail()) %}
+        {% if (getUserVar('email')) %}
 
         <!-- Admin access -->
         <li>
