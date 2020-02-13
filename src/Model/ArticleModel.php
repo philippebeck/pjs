@@ -2,9 +2,9 @@
 
 namespace App\Model;
 
-use Pam\Model\Model;
+use Pam\Model\MainModel;
 
 /** ****************\
  * CRUD for articles
  */
-class ArticleModel extends Model {}
+class ArticleModel extends MainModel {}

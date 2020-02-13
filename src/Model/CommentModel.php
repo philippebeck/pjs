@@ -2,9 +2,9 @@
 
 namespace App\Model;
 
-use Pam\Model\Model;
+use Pam\Model\MainModel;
 
 /** ****************\
  * CRUD for comments
  */
-class CommentModel extends Model {}
+class CommentModel extends MainModel {}
