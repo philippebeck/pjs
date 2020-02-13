@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use Pam\Controller\Controller;
-use Pam\Model\ModelFactory;
+use Pam\Controller\MainController;
+use Pam\Model\Factory\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -12,7 +12,7 @@ use Twig\Error\SyntaxError;
  * Class AdminController
  * @package App\Controller
  */
-class AdminController extends Controller
+class AdminController extends MainController
 {
     /**
      * @return string
@@ -20,15 +20,15 @@ class AdminController extends Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function indexAction()
+    public function defaultMethod()
   {
     if ($this->session->islogged()) {
 
-      if ($this->session->userEmail()) {
+      if ($this->session->getUserVar('email')) {
 
-        $allArticles  = ModelFactory::get('Article')->list();
-        $allComments  = ModelFactory::get('Comment')->list();
-        $allUsers     = ModelFactory::get('User')   ->list();
+        $allArticles  = ModelFactory::getModel('Article')->listData();
+        $allComments  = ModelFactory::getModel('Comment')->listData();
+        $allUsers     = ModelFactory::getModel('User')   ->listData();
 
         return $this->render('admin/admin.twig', [
           'allArticles'       => $allArticles,

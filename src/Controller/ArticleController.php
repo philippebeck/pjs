@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use Pam\Controller\Controller;
-use Pam\Model\ModelFactory;
+use Pam\Controller\MainController;
+use Pam\Model\Factory\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -12,7 +12,7 @@ use Twig\Error\SyntaxError;
  * Class ArticleController
  * @package App\Controller
  */
-class ArticleController extends Controller
+class ArticleController extends MainController
 {
     /**
      * @return string
@@ -20,9 +20,9 @@ class ArticleController extends Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function indexAction()
+    public function defaultMethod()
   {
-    $allArticles = ModelFactory::get('Article')->list();
+    $allArticles = ModelFactory::getModel('Article')->listData();
 
     return $this->render('blog/blog.twig', ['allArticles' => $allArticles]);
   }
@@ -33,7 +33,7 @@ class ArticleController extends Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function createAction()
+    public function createMethod()
   {
     if (!empty($this->post->getPostArray())) {
       $data['image'] = $this->files->uploadFile('img/blog');
@@ -44,7 +44,7 @@ class ArticleController extends Controller
       $data['created_date'] = $this->post->getPostVar('date');
       $data['updated_date'] = $this->post->getPostVar('date');
 
-      ModelFactory::get('Article')->create($data);
+      ModelFactory::getModel('Article')->create($data);
       $this->cookie->createAlert('New article created successfully !');
 
       $this->redirect('admin');
@@ -58,10 +58,10 @@ class ArticleController extends Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function readAction()
+    public function readMethod()
   {
-    $article  = ModelFactory::get('Article')->read($this->get->getGetVar('id'));
-    $comments = ModelFactory::get('Comment')->list($this->get->getGetVar('id'), 'article_id');
+    $article  = ModelFactory::getModel('Article')->readData($this->get->getGetVar('id'));
+    $comments = ModelFactory::getModel('Comment')->listData($this->get->getGetVar('id'), 'article_id');
 
     if(!empty($comments)) {
 
@@ -69,7 +69,7 @@ class ArticleController extends Controller
 
         $userId = $comments[$i]['user_id'];
 
-        $user = ModelFactory::get('User')->read($userId);
+        $user = ModelFactory::getModel('User')->readData($userId);
 
         $comments[$i]['user']   = $user['name'];
         $comments[$i]['image']  = $user['image'];
@@ -87,7 +87,7 @@ class ArticleController extends Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function updateAction()
+    public function updateMethod()
   {
     if (!empty($this->post->getPostArray())) {
 
@@ -100,19 +100,19 @@ class ArticleController extends Controller
       $data['content']      = $this->post->getPostVar('content');
       $data['updated_date'] = $this->post->getPostVar('date');
 
-      ModelFactory::get('Article')->update($this->get->getGetVar('id'), $data);
+      ModelFactory::getModel('Article')->updateData($this->get->getGetVar('id'), $data);
       $this->cookie->createAlert('Successful modification of the selected article !');
 
       $this->redirect('admin');
     }
-    $article = ModelFactory::get('Article')->read($this->get->getGetVar('id'));
+    $article = ModelFactory::getModel('Article')->readData($this->get->getGetVar('id'));
 
     return $this->render('admin/blog/updateArticle.twig', ['article' => $article]);
   }
 
-    public function deleteAction()
+    public function deleteMethod()
   {
-    ModelFactory::get('Article')->delete($this->get->getGetVar('id'));
+    ModelFactory::getModel('Article')->deleteData($this->get->getGetVar('id'));
     $this->cookie->createAlert('Article permanently deleted !');
 
     $this->redirect('admin');

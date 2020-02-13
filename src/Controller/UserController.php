@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use Pam\Controller\Controller;
-use Pam\Model\ModelFactory;
+use Pam\Controller\MainController;
+use Pam\Model\Factory\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -12,7 +12,7 @@ use Twig\Error\SyntaxError;
  * Class UserController
  * @package App\Controller
  */
-class UserController extends Controller
+class UserController extends MainController
 {
     /**
      * @return string
@@ -20,10 +20,10 @@ class UserController extends Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function loginAction()
+    public function loginMethod()
   {
     if (!empty($this->post->getPostArray())) {
-      $user = ModelFactory::get('User')->read($this->post->getPostVar('email'), 'email');
+      $user = ModelFactory::getModel('User')->readData($this->post->getPostVar('email'), 'email');
 
       if (password_verify($this->post->getPostVar('pass'), $user['pass'])) {
         $this->session->createSession(
@@ -45,7 +45,7 @@ class UserController extends Controller
     /**
      *
      */
-    public function logoutAction()
+    public function logoutMethod()
   {
     $this->session->destroySession();
     $this->cookie->createAlert('Good bye !');
@@ -59,10 +59,10 @@ class UserController extends Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function createAction()
+    public function createMethod()
   {
     if (!empty($this->post)) {
-      $user = ModelFactory::get('User')->read($this->post->getPostVar('email'), 'email');
+      $user = ModelFactory::getModel('User')->readData($this->post->getPostVar('email'), 'email');
 
       if (empty($user) == false) {
         $this->cookie->createAlert('There is already a user account with this email address');
@@ -74,7 +74,7 @@ class UserController extends Controller
       $data['name']     = $this->post['name'];
       $data['email']    = $this->post['email'];
 
-      ModelFactory::get('User')->create($data);
+      ModelFactory::getModel('User')->create($data);
       $this->cookie->createAlert('New user created successfully !');
 
       $this->redirect('home');
@@ -88,7 +88,7 @@ class UserController extends Controller
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function updateAction()
+    public function updateMethod()
   {
     if (!empty($this->post)) {
 
@@ -101,19 +101,19 @@ class UserController extends Controller
       $data['name']     = $this->post->getPostVar('name');
       $data['email']    = $this->post->getPostVar('email');
 
-      ModelFactory::get('User')->update($this->get->getGetVar('id'), $data);
+      ModelFactory::getModel('User')->updateData($this->get->getGetVar('id'), $data);
       $this->cookie->createAlert('Successful modification of the selected user !');
 
       $this->redirect('home');
     }
-    $user = ModelFactory::get('User')->read($this->get->getGetVar('id'));
+    $user = ModelFactory::getModel('User')->readData($this->get->getGetVar('id'));
 
     return $this->render('user/updateUser.twig', ['user' => $user]);
   }
 
-    public function deleteAction()
+    public function deleteMethod()
   {
-    ModelFactory::get('User')->delete($this->get->getGetVar('id'));
+    ModelFactory::getModel('User')->deleteData($this->get->getGetVar('id'));
     $this->cookie->createAlert('User permanently deleted !');
 
     $this->redirect('home');
