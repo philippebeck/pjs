@@ -84,7 +84,7 @@ The project contains 3 homemade tools :
 
 PJS has NO continuous support !
 
-[![Project Maintained](https://img.shields.io/maintenance/no/2019.svg?label=Maintained)](https://github.com/philippebeck/pjs)
+[![Project Maintained](https://img.shields.io/maintenance/no/2020.svg?label=Maintained)](https://github.com/philippebeck/pjs)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/philippebeck/pjs.svg?label=Last+Commit)](https://github.com/philippebeck/pjs/commits/master)
 
 ---
