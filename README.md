@@ -20,9 +20,7 @@ Pjs was a study project, but don't hesitate to send issues or pull requests, I w
 
 ## Summary
 
--   [Package Manager](#package-manager)  
 -   [Download](#download)  
--   [Installation](#installation)  
 -   [Content](#content)  
 -   [Support](#support)  
 -   [Open-Source](#open-source)  
@@ -35,14 +33,6 @@ Pjs was a study project, but don't hesitate to send issues or pull requests, I w
 
 ---
 
-## Package Manager
-
-[![Packagist Version](https://img.shields.io/packagist/v/pjs/pjs.svg?label=Packagist)](https://packagist.org/packages/pjs/pjs)
-
-Composer : `composer require pjs/pjs`  
-
----
-
 ## Download
 
 [Latest Release](https://github.com/philippebeck/pjs/releases)  
@@ -50,22 +40,6 @@ Composer : `composer require pjs/pjs`
 `git clone https://github.com/philippebeck/pjs.git`  
   
 [![Repo Size](https://img.shields.io/github/repo-size/philippebeck/pjs.svg?label=Repo+Size)](https://github.com/philippebeck/pjs/tree/master)
-
----
-
-## Installation
-
-How to install in 5 steps :
-
-1   Install via Composer : `$ composer require pjs/pjs`  
-2   After that, you need to copy inside your project folder the content of the folder : `/vendor/pjs/pjs`  
-3   Then, to construct a fonctional database, go to your phpMyAdmin to import the file : `/config/pjs.sql`  
-4   And, for Pjs could access to the database, put your phpMyAdmin password in the file : `/config/config.php`  
-5   Finally, for front-end dependencies, within your web folder, type in the terminal : `$ npm install`  
-
-If something wrong :
--   Check the config file & your PhpMyAdmin parameters to verify if passwords match  
--   Type in your terminal at the root of the project => `$ composer dump-autoload`  
 
 ---
 
