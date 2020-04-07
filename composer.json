@@ -1,8 +1,8 @@
 {
   "name": "pjs/pjs",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "project",
-  "description": "PJS, a micro-CMS for coding in pyjamas, with Pam, Jim & Sam",
+  "description": "PJS, a micro-CMS for coding with Pam, Jim & Sam",
   "keywords": [
     "cms",
     "php",
@@ -27,12 +27,15 @@
     }
   },
   "require": {
-    "php": "^7.2",
-    "philippebeck/pam": "3.1.1"
+    "php": "^7.3",
+    "philippebeck/pam": "3.2.1"
+  },
+  "require-dev": {
+    "tracy/tracy": "^2.7.2"
   },
   "config": {
     "platform": {
-      "php": "7.2"
+      "php": "7.3"
     }
   }
 }
