@@ -22,9 +22,9 @@ class AdminController extends MainController
      */
     public function defaultMethod()
   {
-    if ($this->session->islogged()) {
+    if ($this->globals->getSession()->islogged()) {
 
-      if ($this->session->getUserVar('email')) {
+      if ($this->globals->getSession()->getUserVar('email')) {
 
         $allArticles  = ModelFactory::getModel('Article')->listData();
         $allComments  = ModelFactory::getModel('Comment')->listData();
@@ -36,11 +36,11 @@ class AdminController extends MainController
           'allUsers'          => $allUsers
         ]);
       }
-      $this->cookie->createAlert('Access reserved for the site administrator');
+      $this->globals->getSession()->createAlert('Access reserved for the site administrator');
 
       $this->redirect('home');
     }
-    $this->cookie->createAlert('You must be logged in to access the administration');
+    $this->globals->getSession()->createAlert('You must be logged in to access the administration');
 
     $this->redirect('user!login');
   }

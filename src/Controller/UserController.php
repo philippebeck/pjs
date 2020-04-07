@@ -20,24 +20,24 @@ class UserController extends MainController
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function loginMethod()
+    public function defaultMethod()
   {
-    if (!empty($this->post->getPostArray())) {
-      $user = ModelFactory::getModel('User')->readData($this->post->getPostVar('email'), 'email');
+    if (!empty($this->globals->getPost()->getPostArray())) {
+      $user = ModelFactory::getModel('User')->readData($this->globals->getPost()->getPostVar('email'), 'email');
 
-      if (password_verify($this->post->getPostVar('pass'), $user['pass'])) {
-        $this->session->createSession(
+      if (password_verify($this->globals->getPost()->getPostVar('pass'), $user['pass'])) {
+        $this->globals->getSession()->createSession(
           $user['id'],
           $user['name'],
           $user['image'],
           $user['email']
         );
 
-        $this->cookie->createAlert('Successful authentication, welcome ' . $user['first_name'] .' !');
+        $this->globals->getSession()->createAlert('Successful authentication, welcome ' . $user['first_name'] .' !', 'info');
 
         $this->redirect('home');
       }
-      $this->cookie->createAlert('Failed authentication !');
+      $this->globals->getSession()->createAlert('Failed authentication !', 'warning');
     }
     return $this->render('user/loginUser.twig');
   }
@@ -47,8 +47,8 @@ class UserController extends MainController
      */
     public function logoutMethod()
   {
-    $this->session->destroySession();
-    $this->cookie->createAlert('Good bye !');
+    $this->globals->getSession()->destroySession();
+    $this->globals->getSession()->createAlert('Good bye !', 'info');
 
     $this->redirect('home');
   }
@@ -61,21 +61,21 @@ class UserController extends MainController
      */
     public function createMethod()
   {
-    if (!empty($this->post)) {
-      $user = ModelFactory::getModel('User')->readData($this->post->getPostVar('email'), 'email');
+    if (!empty($this->globals->getPost()->getPostArray())) {
+      $user = ModelFactory::getModel('User')->readData($this->globals->getPost()->getPostVar('email'), 'email');
 
       if (empty($user) == false) {
-        $this->cookie->createAlert('There is already a user account with this email address');
+        $this->globals->getSession()->createAlert('There is already a user account with this email address', 'warning');
       }
-      $data['image'] = $this->files->uploadFile('img/user');
+      $data['image'] = $this->globals->getFiles()->uploadFile('img/user');
 
-      $data['pass'] = password_hash($this->post->getPostVar('pass'), PASSWORD_DEFAULT);
+      $data['pass'] = password_hash($this->globals->getPost()->getPostVar('pass'), PASSWORD_DEFAULT);
 
-      $data['name']     = $this->post['name'];
-      $data['email']    = $this->post['email'];
+      $data['name']     = $this->globals->getPost()['name'];
+      $data['email']    = $this->globals->getPost()['email'];
 
       ModelFactory::getModel('User')->create($data);
-      $this->cookie->createAlert('New user created successfully !');
+      $this->globals->getSession()->createAlert('New user created successfully !', 'valid');
 
       $this->redirect('home');
     }
@@ -90,31 +90,31 @@ class UserController extends MainController
      */
     public function updateMethod()
   {
-    if (!empty($this->post)) {
+    if (!empty($this->globals->getPost()->getPostArray())) {
 
-      if (!empty($this->files->getFileVar('name'))) {
-        $data['image'] = $this->files->uploadFile('img/user');
+      if (!empty($this->globals->getFiles()->getFileVar('name'))) {
+        $data['image'] = $this->globals->getFiles()->uploadFile('img/user');
       }
 
-      $data['pass'] = password_hash($this->post->getPostVar('pass'), PASSWORD_DEFAULT);
+      $data['pass'] = password_hash($this->globals->getPost()->getPostVar('pass'), PASSWORD_DEFAULT);
 
-      $data['name']     = $this->post->getPostVar('name');
-      $data['email']    = $this->post->getPostVar('email');
+      $data['name']     = $this->globals->getPost()->getPostVar('name');
+      $data['email']    = $this->globals->getPost()->getPostVar('email');
 
-      ModelFactory::getModel('User')->updateData($this->get->getGetVar('id'), $data);
-      $this->cookie->createAlert('Successful modification of the selected user !');
+      ModelFactory::getModel('User')->updateData($this->globals->getGet()->getGetVar('id'), $data);
+      $this->globals->getSession()->createAlert('Successful modification of the selected user !', 'info');
 
       $this->redirect('home');
     }
-    $user = ModelFactory::getModel('User')->readData($this->get->getGetVar('id'));
+    $user = ModelFactory::getModel('User')->readData($this->globals->getGet()->getGetVar('id'));
 
     return $this->render('user/updateUser.twig', ['user' => $user]);
   }
 
     public function deleteMethod()
   {
-    ModelFactory::getModel('User')->deleteData($this->get->getGetVar('id'));
-    $this->cookie->createAlert('User permanently deleted !');
+    ModelFactory::getModel('User')->deleteData($this->globals->getGet()->getGetVar('id'));
+    $this->globals->getSession()->createAlert('User permanently deleted !', 'delete');
 
     $this->redirect('home');
   }

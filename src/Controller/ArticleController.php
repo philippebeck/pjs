@@ -35,17 +35,17 @@ class ArticleController extends MainController
      */
     public function createMethod()
   {
-    if (!empty($this->post->getPostArray())) {
-      $data['image'] = $this->files->uploadFile('img/blog');
+    if (!empty($this->globals->getPost()->getPostArray())) {
+      $data['image'] = $this->globals->getFiles()->uploadFile('img/blog');
 
-      $data['title']        = $this->post->getPostVar('title');
-      $data['link']         = $this->post->getPostVar('link');
-      $data['content']      = $this->post->getPostVar('content');
-      $data['created_date'] = $this->post->getPostVar('date');
-      $data['updated_date'] = $this->post->getPostVar('date');
+      $data['title']        = $this->globals->getPost()->getPostVar('title');
+      $data['link']         = $this->globals->getPost()->getPostVar('link');
+      $data['content']      = $this->globals->getPost()->getPostVar('content');
+      $data['created_date'] = $this->globals->getPost()->getPostVar('date');
+      $data['updated_date'] = $this->globals->getPost()->getPostVar('date');
 
       ModelFactory::getModel('Article')->create($data);
-      $this->cookie->createAlert('New article created successfully !');
+      $this->globals->getSession()->createAlert('New article created successfully !');
 
       $this->redirect('admin');
     }
@@ -60,8 +60,8 @@ class ArticleController extends MainController
      */
     public function readMethod()
   {
-    $article  = ModelFactory::getModel('Article')->readData($this->get->getGetVar('id'));
-    $comments = ModelFactory::getModel('Comment')->listData($this->get->getGetVar('id'), 'article_id');
+    $article  = ModelFactory::getModel('Article')->readData($this->globals->getGet()->getGetVar('id'));
+    $comments = ModelFactory::getModel('Comment')->listData($this->globals->getGet()->getGetVar('id'), 'article_id');
 
     if(!empty($comments)) {
 
@@ -89,31 +89,31 @@ class ArticleController extends MainController
      */
     public function updateMethod()
   {
-    if (!empty($this->post->getPostArray())) {
+    if (!empty($this->globals->getPost()->getPostArray())) {
 
-      if (!empty($this->files->getFileVar('name'))) {
-        $data['image'] = $this->files->uploadFile('img/blog');
+      if (!empty($this->globals->getFiles()->getFileVar('name'))) {
+        $data['image'] = $this->globals->getFiles()->uploadFile('img/blog');
       }
 
-      $data['title']        = $this->post->getPostVar('title');
-      $data['link']         = $this->post->getPostVar('link');
-      $data['content']      = $this->post->getPostVar('content');
-      $data['updated_date'] = $this->post->getPostVar('date');
+      $data['title']        = $this->globals->getPost()->getPostVar('title');
+      $data['link']         = $this->globals->getPost()->getPostVar('link');
+      $data['content']      = $this->globals->getPost()->getPostVar('content');
+      $data['updated_date'] = $this->globals->getPost()->getPostVar('date');
 
-      ModelFactory::getModel('Article')->updateData($this->get->getGetVar('id'), $data);
-      $this->cookie->createAlert('Successful modification of the selected article !');
+      ModelFactory::getModel('Article')->updateData($this->globals->getGet()->getGetVar('id'), $data);
+      $this->globals->getSession()->createAlert('Successful modification of the selected article !');
 
       $this->redirect('admin');
     }
-    $article = ModelFactory::getModel('Article')->readData($this->get->getGetVar('id'));
+    $article = ModelFactory::getModel('Article')->readData($this->globals->getGet()->getGetVar('id'));
 
     return $this->render('admin/blog/updateArticle.twig', ['article' => $article]);
   }
 
     public function deleteMethod()
   {
-    ModelFactory::getModel('Article')->deleteData($this->get->getGetVar('id'));
-    $this->cookie->createAlert('Article permanently deleted !');
+    ModelFactory::getModel('Article')->deleteData($this->globals->getGet()->getGetVar('id'));
+    $this->globals->getSession()->createAlert('Article permanently deleted !');
 
     $this->redirect('admin');
   }
