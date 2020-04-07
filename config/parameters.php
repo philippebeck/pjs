@@ -1,17 +1,15 @@
 <?php
 
-/** ******************************************************\
- * Defines the global constants for access to the database
- */
+/* You need to replace the host value (localhost here) with the database host
+ And the dbname value (pam-app) with your database name */
+define('DB_DSN', 'mysql:host=localhost;dbname=pjs');
 
-  // You need to replace the database host here
-define('DB_HOST', 'localhost');
-
-// You need to replace the database name here
-define('DB_NAME', 'pjs');
-
-// You need to replace the database username here
+/* You need to replace root with the user name of the database */
 define('DB_USER', 'root');
 
-// You need to put the database user password here
+/* You need to add the user password of the database
+WARNING : Add this file name to.gitignore file before adding the password */
 define('DB_PASS', '');
+
+/* You don't need to change anything here : this array is for PDO options */
+define('DB_OPTIONS', array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
