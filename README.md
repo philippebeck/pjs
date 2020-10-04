@@ -4,9 +4,6 @@
 
 Pam, Jim, Sam & Myself
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0477066460ac45abb1b1f37e7a2a1195)](https://www.codacy.com/app/philippebeck/pjs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=philippebeck/pjs&amp;utm_campaign=Badge_Grade)
-[![Maintainability](https://api.codeclimate.com/v1/badges/494bef12c278fde9e110/maintainability)](https://codeclimate.com/github/philippebeck/pjs/maintainability)
-
 ## Overview
 
 You will find a lot of features to construct a website :  
@@ -50,7 +47,7 @@ The project contains 3 homemade tools :
 -   Jim => Javascript Interactive Microlibrary  
 -   Sam => Scss Animated Microframework  
 
-[![CSS Code Size](https://img.shields.io/github/languages/code-size/philippebeck/pjs.svg?label=Code+Size)](https://github.com/philippebeck/pjs/tree/master)
+[![Code Size](https://img.shields.io/github/languages/code-size/philippebeck/pjs.svg?label=Code+Size)](https://github.com/philippebeck/pjs/tree/master)
 
 ---
 
